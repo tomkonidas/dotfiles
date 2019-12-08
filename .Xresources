@@ -2,7 +2,7 @@
 *.alpha: 0.81
 
 !! Set a default font and font size as below:
-!*.font: Monospace-14;
+*.font: Monospace-16;
 
 ! st.termname: st-256color
 ! st.borderpx: 2
