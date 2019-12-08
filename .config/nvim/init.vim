@@ -35,6 +35,8 @@ filetype indent on
 set encoding=utf-8
 set nobackup
 set nowritebackup
+set path=.,**
+set wildmenu
 
 set number
 set relativenumber
@@ -79,3 +81,8 @@ command Q q
 
 " Format whole document
 nmap <leader>f gg=G''
+
+" Choose a buffer
+nnoremap <leader>b :buffers<CR>:buffer<Space>
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
