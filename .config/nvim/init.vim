@@ -1,7 +1,6 @@
 set nocompatible
 
 
-
 if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 	echo "Downloading junegunn/vim-plug to manage plugins..."
 	silent !mkdir -p ~/.config/nvim/autoload/
@@ -13,25 +12,44 @@ endif
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-surround'
-Plug 'sheerun/vim-polyglot'
+Plug 'elixir-lang/vim-elixir'
+Plug 'mhinz/vim-mix-format'
+Plug 'vim-airline/vim-airline'
 call plug#end()
 
+:map <C-c> "+y<CR>
+:map <C-v> "+p<CR>
 
 " Basics
-filetype plugin on
 syntax on
+filetype plugin indent on
 set encoding=utf-8
-set number relativenumber
+set nobackup
+set nowritebackup
 
+set number relativenumber
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set ai
+set expandtab
+set smarttab
+set hidden
+set hlsearch
+set nowrap
+set nofoldenable
 
 let mapleader =","
 
-colorscheme pablo
+set background=dark
+colorscheme koehler
 
-" COC config
-" " if hidden is not set, TextEdit might fail.
-set hidden
+" Elixir
+let g:mix_format_on_save = 1
 
-" Some servers have issues with backup files, see #649
-set nobackup
-set nowritebackup
+
+command WQ wq
+command Wq wq
+command W w
+command Q q
+
