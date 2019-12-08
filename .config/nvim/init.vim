@@ -16,11 +16,12 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim'
 Plug 'mhinz/vim-mix-format'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'dracula/vim', { 'as': 'dracula-2' }
+Plug 'dracula/vim'
 call plug#end()
 
 :map <C-c> "+y<CR>
@@ -36,6 +37,7 @@ set nowritebackup
 
 set number
 set relativenumber
+set cursorline
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
