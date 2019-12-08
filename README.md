@@ -12,7 +12,7 @@
 + **Theme**: Arc-Dark
 + **Colors**: Dracula
 
-![Screenshot](./Pictures/2019-12-07-Screenshot.png)
+![Screenshot](./Pictures/2019-12-08-Screenshot.png)
 
 ## Fresh Install
 ```bash
