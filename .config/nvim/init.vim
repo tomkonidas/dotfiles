@@ -2,10 +2,10 @@ set nocompatible
 
 
 if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
-	echo "Downloading junegunn/vim-plug to manage plugins..."
-	silent !mkdir -p ~/.config/nvim/autoload/
-	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ~/.config/nvim/autoload/plug.vim
-	autocmd VimEnter * PlugInstall
+  echo "Downloading junegunn/vim-plug to manage plugins..."
+  silent !mkdir -p ~/.config/nvim/autoload/
+  silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ~/.config/nvim/autoload/plug.vim
+  autocmd VimEnter * PlugInstall
 endif
 
 
@@ -14,6 +14,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-projectionist'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
@@ -76,3 +77,5 @@ command Wq wq
 command W w
 command Q q
 
+" Format whole document
+nmap <leader>f gg=G''
