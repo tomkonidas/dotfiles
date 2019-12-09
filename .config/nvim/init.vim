@@ -55,6 +55,7 @@ set scrolloff=999
 set background=dark
 set termguicolors
 colorscheme dracula
+hi Normal guibg=NONE ctermbg=NONE
 
 " netrw --- 
 " Open explorer netrw
