@@ -1,5 +1,3 @@
-# Luke's config for the Zoomer Shell
-
 # Enable colors and change prompt:
 autoload -U colors && colors
 PS1="%B%{$fg[blue]%}λ %{$fg[cyan]%}%~%{$reset_color%}%b "
