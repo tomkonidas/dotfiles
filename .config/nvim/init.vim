@@ -73,7 +73,7 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:mix_format_on_save = 1
 
 " Stop highlighting on Enter
-map <CR> :noh<CR>
+map <c-l> :noh<CR>
 
 " Copy/Paste to system Clipboard
 map <C-c> "+y<CR>
