@@ -14,7 +14,7 @@
 
 ![Screenshot](./Pictures/2019-12-08-Screenshot.png)
 
-## Fresh Install
+## Fresh Install?
 ```bash
 git clone --bare https://bitbucket.org/durdn/cfg.git $HOME/.cfg
 function config {
