@@ -75,8 +75,8 @@ let g:mix_format_on_save = 1
 map <CR> :noh<CR>
 
 " Copy/Paste to system Clipboard
-:map <C-c> "+y<CR>
-:map <C-v> "+p<CR>
+map <C-c> "+y<CR>
+map <C-v> "+p<CR>
 
 " Opps ---
 command WQ wq
@@ -92,4 +92,3 @@ nnoremap <leader>b :buffers<CR>:buffer<Space>
 " Toggle through buffers
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
-
