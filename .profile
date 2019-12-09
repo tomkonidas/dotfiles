@@ -8,6 +8,9 @@ export READER="zathura"
 export PATH=$PATH:~/bin
 
 
+export ZDOTDIR="$HOME/.config/zsh"
+
+
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
 	startx
 fi
