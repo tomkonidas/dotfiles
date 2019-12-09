@@ -4,4 +4,4 @@ update_interval 1.0
 total_run_times 0
 use_spacer none
 TEXT
-${time %a %b %d %Y %R} Bat${if_match "${battery_percent BAT1}" <= "5"}:0:${battery_percent}${else}:1:${battery_percent BAT1}${endif}%
+${time %a %b %d %Y%l:%M%P} Bat${if_match "${battery_percent BAT1}" <= "5"}:0:${battery_percent}${else}:1:${battery_percent BAT1}${endif}%
