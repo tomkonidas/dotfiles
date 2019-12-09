@@ -1,5 +1,5 @@
 !! Transparency (0-1):
-*.alpha: 0.81
+*.alpha: 0.88
 
 !! Set a default font and font size as below:
 *.font: Monospace-16;
@@ -13,7 +13,8 @@
 *.cursorColor: #BD93F9
 *.foreground: #F8F8F2
 *.background: #282A36
-*.color0:     #000000
+*.color0: #282A36
+/* *.color0:     #000000 */
 *.color8:     #4D4D4D
 *.color1:     #FF5555
 *.color9:     #FF6E67
