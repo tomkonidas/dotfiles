@@ -4,7 +4,6 @@
 + **OS**: Arch Linux
 + **WM**: spectrwm
 + **Shell**: bash
-+ **Bar**: Built-in spectrwm bar (with conky)
 + **Terminal**: st
 + **Font**: Fira Code
 + **Editor**: Neovim
