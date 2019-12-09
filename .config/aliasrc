@@ -18,4 +18,7 @@ alias grep="grep --color=auto"
 alias diff="diff --color=auto" 
 alias cmatrix="cmatrix -C blue"
 
+# Configs
+alias zshrc="nvim ~/.config/zsh/.zshrc"
+
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
