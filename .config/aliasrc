@@ -2,6 +2,7 @@
 
 # Programs
 alias vim="nvim"
+alias v="nvim"
 alias yt="youtube-dl --add-metadata -i"
 alias yta="yt -x -f bestaudio/best"
 alias ffmpeg="ffmpeg -hide_banner"
