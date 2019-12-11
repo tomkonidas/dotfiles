@@ -124,4 +124,4 @@ nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 
 " Compile PDF files on write
-autocmd BufWritePost *.tex :Latexmk<CR>
+autocmd BufWritePost *.tex :Latexmk
