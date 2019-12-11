@@ -98,7 +98,6 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
-
 " Elixir ---
 let g:mix_format_on_save = 1
 
@@ -123,3 +122,6 @@ nnoremap <leader>b :buffers<CR>:buffer<Space>
 " Toggle through buffers
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
+
+" Compile PDF files on write
+autocmd BufWritePost *.tex :Latexmk<CR>
