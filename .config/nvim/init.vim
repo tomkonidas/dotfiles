@@ -123,5 +123,12 @@ nnoremap <leader>b :buffers<CR>:buffer<Space>
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 
+" Autocomplete spell in Insert Mode
+set complete+=kspell
+
 " Compile PDF files on write
 autocmd BufWritePost *.tex :Latexmk
+autocmd BufRead,BufNewFile *.tex setlocal spell
+
+" Spellcheck for commits
+autocmd FileType gitcommit setlocal spell
