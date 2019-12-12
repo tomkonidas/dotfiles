@@ -38,6 +38,7 @@ set wildmenu
 set wildmode=longest,list,full
 set number
 set relativenumber
+set colorcolumn=+1
 set cursorline
 set tabstop=2
 set shiftwidth=2
