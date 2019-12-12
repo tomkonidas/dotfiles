@@ -34,7 +34,8 @@ set nobackup
 set nowritebackup
 set path=.,,**
 set wildmenu
-
+" Enable autocompletion:
+set wildmode=longest,list,full
 set number
 set relativenumber
 set cursorline
@@ -132,3 +133,9 @@ autocmd BufRead,BufNewFile *.tex setlocal spell
 
 " Spellcheck for commits
 autocmd FileType gitcommit setlocal spell
+
+" Spell-check set to <leader>o, 'o' for 'orthography':
+map <leader>o :setlocal spell! spelllang=en_us<CR>
+
+" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
+set splitbelow splitright
