@@ -48,6 +48,7 @@ set smarttab
 set hidden
 set incsearch
 set hlsearch
+set ignorecase
 set smartcase
 set nowrap
 set nofoldenable
@@ -103,7 +104,7 @@ let g:airline_symbols.linenr = ''
 let g:mix_format_on_save = 1
 
 " Stop highlighting on Enter
-map <c-l> :noh<CR>
+map <esc> :noh<CR>
 
 " Copy/Paste to system Clipboard
 map <C-c> "+y<CR>
