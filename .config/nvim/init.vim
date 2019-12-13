@@ -122,10 +122,15 @@ command Q q
 
 " Find a document
 nmap <leader>f :find<space> 
+
+nnoremap rm :!rm %
+
 " Close a buffer
 nnoremap <leader>q :bd<CR>
+
 " Choose a buffer
 nnoremap <leader>b :buffers<CR>:buffer<Space>
+
 " Toggle through buffers
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
