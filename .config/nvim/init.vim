@@ -41,7 +41,7 @@ set wildmenu
 set wildmode=longest,list,full
 set number
 set relativenumber
-set colorcolumn=+1
+" set colorcolumn=+1
 set cursorline
 set tabstop=2
 set shiftwidth=2
@@ -120,8 +120,8 @@ command Wq wq
 command W w
 command Q q
 
-" Format whole document
-nmap <leader>f gg=G''
+" Find a document
+nmap <leader>f :find<space> 
 
 " Choose a buffer
 nnoremap <leader>b :buffers<CR>:buffer<Space>
