@@ -23,3 +23,6 @@ alias cmatrix="cmatrix -C blue"
 alias zshrc="nvim ~/.config/zsh/.zshrc"
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# Extras
+alias golfo="fortune | cowsay -f tux | lolcat"
