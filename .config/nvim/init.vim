@@ -82,9 +82,6 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-" Emmet remap
-" let g:user_emmet_leader_key='<Tab>'
-
 " unicode symbols
 let g:airline_left_sep = '»'
 let g:airline_left_sep = '▶'
