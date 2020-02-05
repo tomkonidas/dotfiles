@@ -21,6 +21,7 @@ alias cmatrix="cmatrix -C blue"
 
 # Configs
 alias zshrc="nvim ~/.config/zsh/.zshrc"
+alias spectrwm="nvim ~/.spectrwm.conf"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # Custom
