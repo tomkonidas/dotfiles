@@ -7,14 +7,20 @@ DIRS=$(ls -d */)
 
 for DIR in $DIRS
 do
-  cd $DIR
-  for FILE in $(ls)
-  do
-    if [ -f $FILE ]
-    then
-      echo $FILE
-    fi
-  done
-  cd ..
+  dir($DIR)
 done
 
+dir(CUR)
+do
+  cd $CUR
+    for FILE in $(ls)
+    do
+      if [ -d $CUR ]
+      then
+        $(dir($CUR))
+      elif [ -f $FILE ]
+        echo $FILE
+      fi
+    done
+  cd ..
+done
