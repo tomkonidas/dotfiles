@@ -2,13 +2,10 @@
 
 dir() {
   cd $1
-    for FILE in $(ls)
-    do
-      if [ -d $FILE ]
-      then
+    for FILE in $(ls); do
+      if [ -d $FILE ]; then
         $(dir $FILE )
-      elif [ -f $FILE ]
-      then
+      elif [ -f $FILE ]; then
         echo $FILE
       fi
     done
@@ -17,8 +14,7 @@ dir() {
 
 DIRS=$(ls -d */)
 
-for DIR in $DIRS
-do
+for DIR in $DIRS; do
   dir $DIR
 done
 
