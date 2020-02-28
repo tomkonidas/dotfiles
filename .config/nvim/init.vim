@@ -157,4 +157,4 @@ inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
 
 " Embeded Elixir commands
 autocmd FileType eelixir inoremap ;e <%=  %><Space><++><Esc>F%hi
-autocmd FileType eelixir inoremap ;d <%  %><Space><++><Esc>F%hi
+autocmd FileType eelixir inoremap ;q <%  %><Space><++><Esc>F%hi
