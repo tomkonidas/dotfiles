@@ -14,7 +14,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'mattn/emmet-vim'
-Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
 Plug 'slashmili/alchemist.vim'
 Plug 'mhinz/vim-mix-format'
@@ -149,9 +148,6 @@ map <leader>o :setlocal spell! spelllang=en_us<CR>
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 set splitbelow splitright
 
-" Custom boilderplate insert commands
-inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
-
 " Embeded Elixir commands
-autocmd FileType eelixir inoremap ;e <%=  %><Space><++><Esc>F%hi
-autocmd FileType eelixir inoremap ;d <%  %><Space><++><Esc>F%hi
+autocmd FileType eelixir inoremap ;e <%=  %><Space><Esc>F%hi
+autocmd FileType eelixir inoremap ;d <%  %><Space><Esc>F%hi
