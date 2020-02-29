@@ -148,6 +148,6 @@ map <leader>o :setlocal spell! spelllang=en_us<CR>
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 set splitbelow splitright
 
-" Embeded Elixir commands
+" Elixir helpers commands
 autocmd FileType eelixir inoremap ;e <%=  %><Space><Esc>F%hi
 autocmd FileType eelixir inoremap ;d <%  %><Space><Esc>F%hi
