@@ -24,5 +24,8 @@ alias zshrc="nvim ~/.config/zsh/.zshrc"
 alias spectrwm="nvim ~/.spectrwm.conf"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+# Git
+alias gc="git add . && git commit"
+
 # Custom
 alias golfo="fortune | cowsay -f tux | lolcat"
