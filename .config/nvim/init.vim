@@ -149,5 +149,5 @@ map <leader>o :setlocal spell! spelllang=en_us<CR>
 set splitbelow splitright
 
 " Elixir helpers commands
-autocmd FileType eelixir inoremap ;e <%=  %><Space><Esc>F%hi
-autocmd FileType eelixir inoremap ;d <%  %><Space><Esc>F%hi
+autocmd FileType eelixir inoremap ;d <%=  %><Esc>F%hi
+autocmd FileType eelixir inoremap ;e <%  %><Esc>F%hi
