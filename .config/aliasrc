@@ -12,7 +12,11 @@ alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -v"
 alias mkd="mkdir -pv"
+
+# Info
 alias cpuinfo="cat /proc/cpuinfo"
+alias kversion="uname -r"
+alias dist="cat /etc/os-release"
 
 # Colors
 alias ls="ls -hN --color=auto --group-directories-first" 
