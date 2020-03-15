@@ -12,6 +12,7 @@ alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -v"
 alias mkd="mkdir -pv"
+alias cpuinfo="cat /proc/cpuinfo"
 
 # Colors
 alias ls="ls -hN --color=auto --group-directories-first" 
