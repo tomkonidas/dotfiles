@@ -15,7 +15,7 @@ alias mkd="mkdir -pv"
 
 # Info
 alias cpuinfo="cat /proc/cpuinfo"
-alias kversion="uname -r"
+alias kernel_version="uname -r"
 alias dist="cat /etc/os-release"
 
 # Colors
