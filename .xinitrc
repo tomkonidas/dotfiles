@@ -7,4 +7,7 @@ feh --bg-scale --randomize ~/Pictures/wallpapers/* &
 picom &
 dunst > /dev/null 2>&1 &
 
-exec spectrwm
+while true; do
+  /usr/bin/spectrwm 2> /dev/null
+done
+#exec spectrwm
