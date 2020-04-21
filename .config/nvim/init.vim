@@ -20,6 +20,8 @@ Plug 'mhinz/vim-mix-format'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'dracula/vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'xltan/lightline-colors.vim'
 Plug 'flazz/vim-colorschemes'
 call plug#end()
 
@@ -147,6 +149,20 @@ map <leader>o :setlocal spell! spelllang=en_us<CR>
 
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 set splitbelow splitright
+
+" Remap split nav to CTRL + <h,j,k,l>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Resize splits with CTRL + <arrows>
+nnoremap <silent> <C-left> :vertical resize +3<CR>
+nnoremap <silent> <C-Right> :vertical resize -3<CR>
+nnoremap <silent> <C-Up> :resize +3<CR>
+nnoremap <silent> <C-Down> :resize -3<CR>
+
+
 
 " Elixir helpers commands
 autocmd FileType eelixir inoremap ;d <%=  %><Esc>F%hi
