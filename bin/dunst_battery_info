@@ -1,3 +1,0 @@
-#!/bin/sh
-bat=`acpi`
-notify-send "$bat"

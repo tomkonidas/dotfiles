@@ -1,7 +1,0 @@
-#!/bin/sh
-
-pidof dunst && killall dunst
-dunst &
-
-cal=`cal`
-notify-send  "$cal"
