@@ -1,32 +1,8 @@
 # dotfiles
 
-## Details
-+ **OS**: Arch Linux
-+ **WM**: spectrwm
-+ **Shell**: bash
-+ **Terminal**: st
-+ **Font**: Fira Code
-+ **Editor**: Neovim
-+ **Browser**: Firefox
-+ **Theme**: Arc-Dark
-+ **Colors**: Dracula
+## This repo is under construction.  
 
-![Screenshot](./Pictures/2019-12-08-Screenshot.png)
+> I am working on a Gentoo/DWM build.
 
-## Fresh Install?
-```bash
-git clone --bare https://github.com/tomkonidas/dotfiles.git $HOME/.cfg
-function config {
-   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
-}
-mkdir -p .config-backup
-config checkout
-if [ $? = 0 ]; then
-  echo "Checked out config.";
-  else
-    echo "Backing up pre-existing dot files.";
-    config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
-fi;
-config checkout
-config config status.showUntrackedFiles no
-```
+
+In the meanwhile, you can view my previous Arch/SpectrWM build [here](https://github.com/tomkonidas/dotfiles/tree/spectrwm)
