@@ -6,3 +6,16 @@
 
 
 In the meanwhile, you can view my previous Arch/SpectrWM build [here](https://github.com/tomkonidas/dotfiles/tree/spectrwm)
+
+## Contact
+
+Created by [@tomkonidas](https://tomkonidas.com) - feel free to contact me!
+
+<p>
+  <a href="https://github.com/tomkonidas">
+    <img alt="GitHub followers" src="https://img.shields.io/github/followers/tomkonidas?label=Follow&style=social">
+  </a>
+  <a href="https://twitter.com/tomkonidas">
+    <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/tomkonidas?label=Follow&style=social">
+  </a>
+</p>
