@@ -1,1 +1,4 @@
 EXCLUDES="README.md .git"
+TAGS="gentoo"
+UNDOTTED="bin"
+HOSTNAME="vulcan"
