@@ -1,4 +1,7 @@
 #!/bin/bash
+#
+# ~/bin/i3lock_blur
+# Lock screen with Blured screenshot and lock icon
 
 TMPBG=/tmp/screen.png
 LOCK=$HOME/.config/lock.png
