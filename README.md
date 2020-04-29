@@ -9,18 +9,34 @@ In the meanwhile, you can view my previous Arch/SpectrWM build [here](https://gi
 
 ## Setup
 
-Download [rcm](https://github.com/thoughtbot/rcm)
-`sudo emerge --ask app-admin/rcm`
+Download && Install [rcm](https://github.com/thoughtbot/rcm)
 
-Setup your `.rcrc` file. (run `man rcrc` to view an example)
-`nvim ~/.rcrc`
+> Gentoo
+
+```bash
+sudo emerge --ask app-admin/rcm
+```
+
+Setup your `.rcrc` file.
+
+> run `man rcrc` to view an example on how to set it up
+
+```bash
+nvim ~/.rcrc
+```
 
 
 See the output
-`lsrc`
+
+```bash
+lsrc
+```
 
 When happy with the output
-`rcup`
+
+```bash
+rcup
+```
 
 ## Contact
 
