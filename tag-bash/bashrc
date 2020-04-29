@@ -15,4 +15,5 @@ if [[ $- != *i* ]] ; then
 fi
 
 
-# Put your fun stuff here.
+# Enable IEx Shall History
+export ERL_AFLAGS="-kernel shell_history enabled"
