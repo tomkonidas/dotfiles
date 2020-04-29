@@ -1,0 +1,25 @@
+#!/bin/bash
+
+xrdb -merge $HOME/.Xresources
+
+~/.fehbg &
+
+compton -b --config /dev/null &
+
+# DWM Status Bar
+while true
+do
+	BAT=$(battery)	
+	LOCALTIME=$(date +"%I:%M %p")
+	TEMP="$(($(cat /sys/class/thermal/thermal_zone0/temp) / 1000))°C"
+
+	xsetroot -name " $BAT $TEMP $LOCALTIME "
+
+	sleep 5s
+done &
+
+while true
+do
+    	/usr/local/bin/dwm 2> /dev/null
+    	#exec dbus-launch --exit-with-session dwm
+done
