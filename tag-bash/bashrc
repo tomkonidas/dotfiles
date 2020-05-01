@@ -14,6 +14,9 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
+# Load aliases and shortcuts if existent.
+[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
+[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 # Enable IEx Shall History
 export ERL_AFLAGS="-kernel shell_history enabled"
