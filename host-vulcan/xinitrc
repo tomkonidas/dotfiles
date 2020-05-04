@@ -1,9 +1,8 @@
 #!/bin/bash
 
-xrdb -merge $HOME/.Xresources
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
 ~/.fehbg &
-
 compton -b --config /dev/null &
 
 # DWM Status Bar
