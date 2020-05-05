@@ -10,11 +10,11 @@ while true
 do
 	BAT=$(battery)	
 	LOCALTIME=$(date +"%I:%M %p")
-	TEMP="$(($(cat /sys/class/thermal/thermal_zone0/temp) / 1000))°C"
+	#TEMP="$(($(cat /sys/class/thermal/thermal_zone0/temp) / 1000))°C"
 
-	xsetroot -name " $BAT $TEMP $LOCALTIME "
+	xsetroot -name " $BAT $LOCALTIME "
 
-	sleep 5s
+	sleep 1m
 done &
 
 while true
