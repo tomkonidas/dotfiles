@@ -14,7 +14,7 @@ do
 
 	xsetroot -name " $BAT $LOCALTIME "
 
-	sleep 1m
+	sleep 15s
 done &
 
 while true
