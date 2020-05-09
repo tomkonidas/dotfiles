@@ -1,6 +1,10 @@
 set nocompatible
 
 syntax on
+filetype plugin on
+filetype indent on
+set encoding=utf-8
+
 let mapleader =","
 
 set tabstop=4 softtabstop=4
@@ -8,6 +12,7 @@ set shiftwidth=4
 set expandtab
 set smartindent
 set nu
+set relativenumber
 set nowrap
 set smartcase
 set noswapfile
@@ -16,7 +21,7 @@ set undodir=~/.config/nvim/undodir
 set undofile
 set incsearch
 
-set colorcolumn=80
+set colorcolumn=+1
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 
