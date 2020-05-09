@@ -5,9 +5,10 @@ filetype plugin on
 filetype indent on
 set encoding=utf-8
 
-let mapleader =","
+let mapleader =" "
 
-set tabstop=4 softtabstop=4
+set tabstop=4 
+set softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
@@ -20,8 +21,17 @@ set nobackup
 set undodir=~/.config/nvim/undodir
 set undofile
 set incsearch
+set lazyredraw
+set cursorline
+set showcmd
+set showmatch
 
-set colorcolumn=+1
+set path=.,,**
+set wildmenu
+set wildmode=longest,list,full
+
+set colorcolumn=80
+set cursorline
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 
@@ -34,8 +44,16 @@ endif
 
 " Plugins ---
 call plug#begin('~/.config/nvim/plugged')
+
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
+Plug 'arcticicestudio/nord-vim'
+
 call plug#end()
 
+set background=dark
+colorscheme nord
+
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
