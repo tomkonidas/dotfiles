@@ -25,6 +25,7 @@ set lazyredraw
 set cursorline
 set showcmd
 set showmatch
+set splitbelow splitright
 
 set path=.,,**
 set wildmenu
@@ -65,7 +66,21 @@ autocmd FileType gitcommit setlocal spell
 " Spell-check set to <leader>o, 'o' for 'orthography':
 map <leader>o :setlocal spell! spelllang=en_us<CR>
 
+" Remap split nav to CTRL + <h,j,k,l>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
+" Resize splits with CTRL + <arrows>
+nnoremap <silent> <C-left> :vertical resize +3<CR>
+nnoremap <silent> <C-Right> :vertical resize -3<CR>
+nnoremap <silent> <C-Up> :resize +3<CR>
+nnoremap <silent> <C-Down> :resize -3<CR>
+
+" Toggle between vertical and horizontal split
+map <Leader>th <C-w>t<C-w>H
+map <Leader>tk <C-w>t<C-w>K
 
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
