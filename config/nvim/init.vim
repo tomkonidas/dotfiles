@@ -56,6 +56,10 @@ call plug#end()
 set background=dark
 colorscheme nord
 
+" Copy/Paste to system Clipboard
+map <C-c> "+y<CR>
+map <C-v> "+p<CR>
+
 " Compile PDF files on write
 autocmd BufWritePost *.tex :Latexmk
 autocmd BufRead,BufNewFile *.tex setlocal spell
