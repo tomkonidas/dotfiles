@@ -55,5 +55,17 @@ call plug#end()
 set background=dark
 colorscheme nord
 
+" Compile PDF files on write
+autocmd BufWritePost *.tex :Latexmk
+autocmd BufRead,BufNewFile *.tex setlocal spell
+
+" Spellcheck for commits
+autocmd FileType gitcommit setlocal spell
+
+" Spell-check set to <leader>o, 'o' for 'orthography':
+map <leader>o :setlocal spell! spelllang=en_us<CR>
+
+
+
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
