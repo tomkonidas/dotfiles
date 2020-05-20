@@ -56,6 +56,12 @@ call plug#end()
 set background=dark
 colorscheme nord
 
+" netrw --- 
+" Open explorer netrw
+nnoremap <leader>e :Explore<CR>
+let g:netrw_liststyle = 3
+" let g:netrw_banner = 0
+
 " Copy/Paste to system Clipboard
 map <C-c> "+y<CR>
 map <C-v> "+p<CR>
