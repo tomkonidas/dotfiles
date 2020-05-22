@@ -1,5 +1,0 @@
-EXCLUDES="README.md .git"
-TAGS="gentoo bash"
-SYMLINK_DIRS="bin"
-UNDOTTED="bin"
-HOSTNAME="vulcan"
