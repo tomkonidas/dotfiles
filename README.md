@@ -17,6 +17,7 @@ sudo pacman -S stow
 ## Packages used in config
 - stow
 - neovim
+- xclip
 - materia-gtk-theme
 - spectrwm
 - st
