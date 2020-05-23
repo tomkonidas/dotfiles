@@ -21,6 +21,7 @@ sudo pacman -S stow
 - spectrwm
 - st
 - dmenu
+- ttf-fira-code
 - firefox
 - scrot
 
