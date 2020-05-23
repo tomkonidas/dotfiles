@@ -2,40 +2,16 @@
 
 ## This repo is under construction.  
 
-> I am working on a Gentoo/DWM build.
-
-
 In the meanwhile, you can view my previous Arch/SpectrWM build [here](https://github.com/tomkonidas/dotfiles/tree/spectrwm)
 
 ## Setup
 
-Download && Install [rcm](https://github.com/thoughtbot/rcm)
+Download && Install [stow](https://www.gnu.org/software/stow/)
 
-> Gentoo
-
-```bash
-sudo emerge --ask app-admin/rcm
-```
-
-Setup your `.rcrc` file.
-
-> run `man rcrc` to view an example on how to set it up
+> Arch
 
 ```bash
-nvim ~/.rcrc
-```
-
-
-See the output
-
-```bash
-lsrc
-```
-
-When happy with the output
-
-```bash
-rcup
+sudo pacman -S stow
 ```
 
 ## Contact
