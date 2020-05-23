@@ -18,7 +18,7 @@ set nowrap
 set smartcase
 set noswapfile
 set nobackup
-set undodir=~/.loac/share/nvim/undodir
+set undodir=~/.local/share/nvim/undodir
 set undofile
 set incsearch
 set lazyredraw
@@ -36,15 +36,14 @@ set cursorline
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 
-if ! filereadable(expand('~/.local/share/nvim/autoload/plug.vim'))
+if ! filereadable(expand('~/.local/share/nvim/site/autoload/plug.vim'))
   echo "Downloading junegunn/vim-plug to manage plugins..."
-  silent !mkdir -p ~/.local/share/nvim/autoload/
-  silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ~/.local/share/nvim/autoload/plug.vim
+  silent !curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall
 endif
 
 " Plugins ---
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('~/.local/share/nvim/site/plugged')
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
