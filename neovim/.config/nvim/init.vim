@@ -52,7 +52,12 @@ Plug 'morhetz/gruvbox'
 
 call plug#end()
 
-colorscheme gruvbox
+try
+    colorscheme gruvbox
+catch
+    colorscheme peachpuff
+endtry
+
 set background=dark
 
 " netrw --- 
