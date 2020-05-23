@@ -25,6 +25,7 @@ set lazyredraw
 set cursorline
 set showcmd
 set showmatch
+set clipboard+=unnamedplus
 set splitbelow splitright
 
 set path=.,,**
@@ -65,10 +66,6 @@ set background=dark
 nnoremap <leader>e :Explore<CR>
 let g:netrw_liststyle = 3
 " let g:netrw_banner = 0
-
-" Copy/Paste to system Clipboard
-map <C-c> "+y<CR>
-map <-v> "+p<CR>
 
 " Find a document
 nmap <leader>f :find<space> 
