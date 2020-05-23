@@ -14,6 +14,16 @@ Download && Install [stow](https://www.gnu.org/software/stow/)
 sudo pacman -S stow
 ```
 
+## Packages used in config
+- stow
+- neovim
+- materia-gtk-theme
+- spectrwm
+- st
+- dmenu
+- firefox
+- scrot
+
 ## Contact
 
 Created by [@tomkonidas](https://tomkonidas.com) - feel free to contact me!
