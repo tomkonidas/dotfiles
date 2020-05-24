@@ -26,8 +26,11 @@ set cursorline
 set showcmd
 set showmatch
 set clipboard+=unnamedplus
+set iskeyword+=-
+set mouse=a 
+set formatoptions-=cro
 set splitbelow splitright
-
+set conceallevel=0
 set path=.,,**
 set wildmenu
 set wildmode=longest,list,full
@@ -61,6 +64,8 @@ endtry
 
 set background=dark
 
+au! BufWritePost $MYVIMRC source %
+
 " netrw --- 
 " Open explorer netrw
 nnoremap <leader>e :Explore<CR>
@@ -71,6 +76,7 @@ let g:netrw_liststyle = 3
 nmap <leader>f :find<space> 
 
 nnoremap rm :!rm %
+cmap w!! w !sudo tee %
 
 " Close a buffer
 nnoremap <leader>q :bd<CR>
@@ -99,15 +105,19 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" Resize splits with CTRL + <arrows>
-nnoremap <silent> <C-left> :vertical resize +3<CR>
-nnoremap <silent> <C-Right> :vertical resize -3<CR>
-nnoremap <silent> <C-Up> :resize +3<CR>
-nnoremap <silent> <C-Down> :resize -3<CR>
+" Use alt + hjkl to resize windows
+nnoremap <M-j>    :resize -2<CR>
+nnoremap <M-k>    :resize +2<CR>
+nnoremap <M-h>    :vertical resize -2<CR>
+nnoremap <M-l>    :vertical resize +2<CR>
 
 " Toggle between vertical and horizontal split
 map <Leader>th <C-w>t<C-w>H
 map <Leader>tk <C-w>t<C-w>K
+
+" Better tabbing
+vnoremap < <gv
+vnoremap > >gv
 
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>C
