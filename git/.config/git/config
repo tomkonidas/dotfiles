@@ -1,0 +1,12 @@
+[user]
+	email = tomkonidas@protonmail.ch
+	name = Tom Konidas
+	username = tomkonidas
+[core]
+	editor = nvim
+[alias]
+	a = add --all
+	ai = add -i
+	b = branch
+	c = commit
+	cd = commit --amend
