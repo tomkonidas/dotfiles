@@ -5,7 +5,7 @@ filetype plugin on
 filetype indent on
 set encoding=utf-8
 
-let mapleader =" "
+let mapleader ="\<space>"
 
 set tabstop=4 
 set softtabstop=4
@@ -122,4 +122,4 @@ vnoremap < <gv
 vnoremap > >gv
 
 " turn off search highlight
-nnoremap <leader><space> :nohlsearch<CR>C
+nnoremap <leader><space> :nohlsearch<CR>
