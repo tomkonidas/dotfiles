@@ -25,6 +25,7 @@ sudo pacman -S stow
 - ttf-fira-code
 - firefox
 - scrot
+- acpilight
 
 ## Contact
 
