@@ -70,6 +70,8 @@ au! BufWritePost $MYVIMRC source %
 " Open explorer netrw
 nnoremap <leader>e :Explore<CR>
 let g:netrw_liststyle = 3
+let g:netrw_home=$XDG_CACHE_HOME.'/.local/share/nvim/netrw'
+
 " let g:netrw_banner = 0
 
 " Find a document
