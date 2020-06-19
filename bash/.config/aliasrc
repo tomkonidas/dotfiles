@@ -7,13 +7,19 @@ alias yt="youtube-dl --add-metadata -i"
 alias yta="yt -x -f bestaudio/best"
 alias ffmpeg="ffmpeg -hide_banner"
 
+# Calculator with math support
+alias bc="bc -l"
+
 # General
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -v"
 alias mkd="mkdir -pv"
 
-# Colors
+# Pretty
 alias ls="ls -hN --color=auto --group-directories-first" 
-alias grep="grep --color=auto" 
+alias grep="grep --color=auto"
+alias egrep='egrep --color=auto'
+alias fgrep="fgrep --color=auto"
 alias diff="diff --color=auto" 
+alias mount="mount |column -t"
