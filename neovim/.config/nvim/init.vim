@@ -52,6 +52,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
+Plug 'vim-airline/vim-airline'
 Plug 'mattn/emmet-vim'
 Plug 'morhetz/gruvbox'
 
@@ -72,8 +73,11 @@ au! BufWritePost $MYVIMRC source %
 nnoremap <leader>e :Explore<CR>
 let g:netrw_liststyle = 3
 let g:netrw_home=$XDG_CACHE_HOME.'/.local/share/nvim/netrw'
-
 " let g:netrw_banner = 0
+
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " Find a document
 nmap <leader>f :find<space> 
