@@ -20,6 +20,8 @@ sudo pacman -S stow
 - xclip
 - materia-gtk-theme
 - spectrwm
+- i3lock-color
+- dunst
 - st
 - dmenu
 - ttf-fira-code
