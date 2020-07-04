@@ -48,6 +48,6 @@ SLEEP_SEC=3
 #loops forever outputting a line every SLEEP_SEC secs
 
 while :; do
-	echo "+@fg=2; $(cpu) +@fg=0; | +@fg=3; $(mem) +@fg=0; | +@fg=4; $(bat) +@fg=0; | +@fg=5; $(vol) +@fg=0; |"
+	echo "+@fg=2; $(cpu) +@fg=3; $(mem) +@fg=4; $(bat) +@fg=5; $(vol)"
 	sleep $SLEEP_SEC
 done
