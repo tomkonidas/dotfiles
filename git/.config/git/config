@@ -10,3 +10,5 @@
 	b = branch
 	c = commit
 	cd = commit --amend
+[pull]
+	rebase = false
