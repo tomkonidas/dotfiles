@@ -56,8 +56,7 @@ Plug 'tpope/vim-endwise'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim'
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
+Plug 'sheerun/vim-polyglot'
 Plug 'morhetz/gruvbox'
 
 call plug#end()
