@@ -46,6 +46,8 @@ if ! filereadable(expand('~/.local/share/nvim/site/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall
 endif
 
+let g:polyglot_disabled = ['javascript']
+
 " Plugins ---
 call plug#begin('~/.local/share/nvim/site/plugged')
 
@@ -57,6 +59,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'yuezk/vim-js'
 Plug 'morhetz/gruvbox'
 
 call plug#end()
@@ -97,7 +100,6 @@ nnoremap <leader>b :buffers<CR>:buffer<Space>
 " Toggle through buffers
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
-
 
 " Compile PDF files on write
 autocmd BufWritePost *.tex :Latexmk
