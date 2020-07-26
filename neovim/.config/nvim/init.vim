@@ -74,6 +74,9 @@ set background=dark
 
 au! BufWritePost $MYVIMRC source %
 
+" Javascript to tab at 2
+autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
+
 " netrw --- 
 " Open explorer netrw
 nnoremap <leader>e :Explore<CR>
