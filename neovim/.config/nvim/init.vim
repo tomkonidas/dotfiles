@@ -98,7 +98,7 @@ nnoremap <S-Tab> :bprevious<CR>
 
 
 " Compile PDF files on write
-autocmd BufWritePost *.tex :Latexmk
+autocmd BufWritePost *.tex silent! execute "!pdflatex % >/dev/null 2>&1"
 autocmd BufRead,BufNewFile *.tex setlocal spell
 
 " Spellcheck for commits
