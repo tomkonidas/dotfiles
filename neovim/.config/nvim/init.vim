@@ -142,6 +142,7 @@ let g:coc_global_extensions = [
   \ 'coc-pairs',
   \ 'coc-tsserver',
   \ 'coc-json', 
+  \ 'coc-texlab', 
   \ ]
 
 " Add prettier if present in project
