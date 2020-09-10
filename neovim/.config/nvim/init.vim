@@ -28,6 +28,7 @@ set conceallevel=0
 set path=.,,**
 set wildmenu
 set wildmode=longest,list,full
+set wildignore+=*/node_modules/*
 
 set cursorline
 highlight ColorColumn ctermbg=0 guibg=lightgrey
