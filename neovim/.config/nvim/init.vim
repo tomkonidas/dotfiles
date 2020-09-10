@@ -114,6 +114,10 @@ autocmd FileType gitcommit setlocal spell
 " Spell-check set to <leader>o, 'o' for 'orthography':
 map <leader>o :setlocal spell! spelllang=en_us<CR>
 
+" Move viusal selections
+xnoremap K :move '<-2<CR>gv-gv
+xnoremap J :move '>+1<CR>gv-gv
+
 " Remap split nav to CTRL + <h,j,k,l>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
