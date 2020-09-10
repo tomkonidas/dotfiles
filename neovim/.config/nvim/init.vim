@@ -57,6 +57,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'airblade/vim-gitgutter'
     Plug 'mattn/emmet-vim'
+    Plug 'mhinz/vim-mix-format'
 " Syntax
     Plug 'sheerun/vim-polyglot'
     Plug 'yuezk/vim-js'
@@ -107,6 +108,10 @@ nnoremap <S-Tab> :bprevious<CR>
 " Compile PDF files on write
 autocmd BufWritePost *.tex silent! execute "!pdflatex % >/dev/null 2>&1"
 autocmd BufRead,BufNewFile *.tex setlocal spell
+
+" Elixir
+let g:mix_format_on_save = 1
+autocmd FileType elixir setlocal formatprg=mix\ format\ -
 
 " Spellcheck for commits
 autocmd FileType gitcommit setlocal spell
