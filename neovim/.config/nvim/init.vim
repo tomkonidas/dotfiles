@@ -1,18 +1,11 @@
 set nocompatible
 
 syntax on
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 set encoding=utf-8
 
 let mapleader ="\<space>"
 
-set tabstop=4 
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set autoindent
-set smartindent
 set nu
 set relativenumber
 set nowrap
@@ -36,7 +29,6 @@ set path=.,,**
 set wildmenu
 set wildmode=longest,list,full
 
-set colorcolumn=80
 set cursorline
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
