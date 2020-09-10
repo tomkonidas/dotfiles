@@ -50,18 +50,18 @@ let g:polyglot_disabled = ['javascript']
 
 " Plugins ---
 call plug#begin('~/.local/share/nvim/site/plugged')
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-endwise'
-Plug 'vim-airline/vim-airline'
-Plug 'airblade/vim-gitgutter'
-Plug 'mattn/emmet-vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'yuezk/vim-js'
-Plug 'morhetz/gruvbox'
-
+" Tools
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-endwise'
+    Plug 'vim-airline/vim-airline'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'mattn/emmet-vim'
+" Syntax
+    Plug 'sheerun/vim-polyglot'
+    Plug 'yuezk/vim-js'
+" Color-schemes
+    Plug 'morhetz/gruvbox'
 call plug#end()
 
 try
@@ -137,52 +137,3 @@ vnoremap > >gv
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 
-" coc config
-let g:coc_global_extensions = [
-  \ 'coc-pairs',
-  \ 'coc-tsserver',
-  \ 'coc-json', 
-  \ 'coc-texlab', 
-  \ ]
-
-" Add prettier if present in project
-if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
-    let g:coc_global_extensions += ['coc-prettier']
-endif
-
-" Add eslint if present in project
-if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
-    let g:coc_global_extensions += ['coc-eslint']
-endif
-
-
-" Show tool tip documentation and diagnostics
-nnoremap <silent> K :call CocAction('doHover')<CR>
-
-" Show tip on timer
-function! ShowDocIfNoDiagnostic(timer_id)
-    if (coc#util#has_float() == 0)
-        silent call CocActionAsync('doHover')
-    endif
-endfunction
-
-function! s:show_hover_doc()
-    call timer_start(500, 'ShowDocIfNoDiagnostic')
-endfunction
-
-autocmd CursorHoldI * :call <SID>show_hover_doc()
-autocmd CursorHold * :call <SID>show_hover_doc()
-
-" coc Navigation
-
-" definition, type definition and references
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gr <Plug>(coc-references)
-
-" navigate  between errors
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" Rename
-nmap <leader>rn <Plug>(coc-rename)
