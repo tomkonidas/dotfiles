@@ -24,6 +24,10 @@ set clipboard+=unnamedplus
 set iskeyword+=-
 set mouse=a 
 set formatoptions-=cro
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
 set splitbelow splitright
 set conceallevel=0
 set path=.,,**
