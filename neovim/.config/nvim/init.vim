@@ -6,6 +6,7 @@ set encoding=utf-8
 
 let mapleader ="\<space>"
 
+set hidden
 set nu
 set relativenumber
 set nowrap
