@@ -57,6 +57,8 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'airblade/vim-gitgutter'
     Plug 'mattn/emmet-vim'
     Plug 'mhinz/vim-mix-format'
+    Plug 'junegunn/fzf'
+    Plug 'junegunn/fzf.vim'
 " Syntax
     Plug 'sheerun/vim-polyglot'
     Plug 'yuezk/vim-js'
