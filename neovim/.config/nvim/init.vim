@@ -77,7 +77,7 @@ if (has("termguicolors"))
  set termguicolors
 endif
 try
-    colorscheme dracula
+    colorscheme gruvbox
 catch
     colorscheme peachpuff
 endtry
