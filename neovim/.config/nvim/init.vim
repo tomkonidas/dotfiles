@@ -186,6 +186,7 @@ nnoremap <silent> <C-b> :NERDTreeToggle<CR>
 " Coc Config
 let g:coc_global_extensions = [
   \ 'coc-elixir',
+  \ 'coc-explorer',
   \ 'coc-pairs',
   \ 'coc-emmet',
   \ 'coc-css',
@@ -262,7 +263,6 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
 xmap <C-f>  <Plug>(coc-format-selected)
-nmap <C-f>  <Plug>(coc-format-selected)
 
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
