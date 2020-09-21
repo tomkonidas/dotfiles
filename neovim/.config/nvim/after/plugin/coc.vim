@@ -1,3 +1,5 @@
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
 inoremap <silent><expr> <c-space> coc#refresh()
 
 inoremap <silent><expr> <TAB>
