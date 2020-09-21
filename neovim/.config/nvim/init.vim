@@ -119,9 +119,6 @@ autocmd BufRead,BufNewFile *.tex setlocal spell
 let g:mix_format_on_save = 1
 autocmd FileType elixir setlocal formatprg=mix\ format\ -
 
-" Spellcheck for commits
-autocmd FileType gitcommit setlocal spell
-
 " Spell-check set to <leader>o, 'o' for 'orthography':
 map <leader>o :setlocal spell! spelllang=en_us<CR>
 
