@@ -1,2 +1,2 @@
-autocmd FileType gitcommit setlocal spell
+setlocal spell
 setlocal colorcolumn=50
