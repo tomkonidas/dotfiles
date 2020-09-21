@@ -88,10 +88,13 @@ au! BufWritePost $MYVIMRC source %
 
 " netrw --- 
 " Open explorer netrw
-" nnoremap <leader>e :Explore<CR>
+" nnoremap <leader>e :Lexplore<CR>
 let g:netrw_liststyle = 3
 let g:netrw_home=$XDG_CACHE_HOME.'/.local/share/nvim/netrw'
-" let g:netrw_banner = 0
+let g:netrw_banner = 0
+let g:netrw_sort_sequence = '[\/]$,*'
+let g:netrw_browse_split = 4
+
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
@@ -105,7 +108,7 @@ cmap w!! w !sudo tee %
 nnoremap <leader>q :bd<CR>
 
 " Choose a buffer
-nnoremap <leader>b :buffers<CR>:buffer<Space>
+nnoremap <leader>b :Buffers<CR>
 
 " Toggle through buffers
 nnoremap <Tab> :bnext<CR>
