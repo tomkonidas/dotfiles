@@ -68,6 +68,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
 " Syntax
     Plug 'sheerun/vim-polyglot'
     Plug 'yuezk/vim-js'
+    Plug 'direnv/direnv.vim'
 " Color-schemes
     Plug 'morhetz/gruvbox'
 call plug#end()
