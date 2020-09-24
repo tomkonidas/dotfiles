@@ -105,7 +105,7 @@ nnoremap rm :!rm %
 cmap w!! w !sudo tee %
 
 " Close a buffer
-nnoremap <leader>q :bd<CR>
+nnoremap <leader>q :bp<cr>:bd #<cr>
 
 " Choose a buffer
 nnoremap <leader>b :Buffers<CR>
