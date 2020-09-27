@@ -167,12 +167,16 @@ xnoremap p pgvy
 " Exit terminal mode
 tnoremap <Esc> <C-\><C-n>
 
+" Trigger Omnicomplete
+inoremap <C-Space> <C-x><C-o>
+inoremap <C-@> <C-Space>
+
 " Navigate the complete menu items like CTRL+n / CTRL+p would.
-inoremap <expr> <Down> pumvisible() ? "<C-n>" :"<Down>"
-inoremap <expr> <Up> pumvisible() ? "<C-p>" : "<Up>"
+inoremap <expr> <C-j> pumvisible() ? "<C-n>" :"<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "<C-p>" : "<C-k>"
 
 " Select the complete menu item like CTRL+y would.
-inoremap <expr> <Right> pumvisible() ? "<C-y>" : "<Right>"
+inoremap <expr> <C-l> pumvisible() ? "<C-y>" : "<C-l>"
 
 " Cancel the complete menu item like CTRL+e would.
 inoremap <expr> <Left> pumvisible() ? "<C-e>" : "<Left>"
