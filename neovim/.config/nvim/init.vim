@@ -62,10 +62,13 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'mhinz/vim-mix-format'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    Plug 'scrooloose/nerdtree'
+    Plug 'slashmili/alchemist.vim'
     Plug 'ryanoasis/vim-devicons'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'vim-scripts/AutoComplPop'
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
 " Syntax
+    Plug 'elixir-editors/vim-elixir'
     Plug 'sheerun/vim-polyglot'
     Plug 'yuezk/vim-js'
     Plug 'direnv/direnv.vim'
@@ -88,12 +91,11 @@ au! BufWritePost $MYVIMRC source %
 
 " netrw --- 
 " Open explorer netrw
-" nnoremap <leader>e :Lexplore<CR>
+nnoremap <leader>e :Explore<CR>
 let g:netrw_liststyle = 3
 let g:netrw_home=$XDG_CACHE_HOME.'/.local/share/nvim/netrw'
 let g:netrw_banner = 0
 let g:netrw_sort_sequence = '[\/]$,*'
-let g:netrw_browse_split = 4
 
 
 " Airline
@@ -105,7 +107,7 @@ nnoremap rm :!rm %
 cmap w!! w !sudo tee %
 
 " Close a buffer
-nnoremap <leader>q :bp<cr>:bd #<cr>
+nnoremap <leader>q :bd<CR>
 
 " Choose a buffer
 nnoremap <leader>b :Buffers<CR>
@@ -120,7 +122,6 @@ autocmd BufRead,BufNewFile *.tex setlocal spell
 
 " Elixir
 let g:mix_format_on_save = 1
-autocmd FileType elixir setlocal formatprg=mix\ format\ -
 
 " Spell-check set to <leader>o, 'o' for 'orthography':
 map <leader>o :setlocal spell! spelllang=en_us<CR>
@@ -135,11 +136,15 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" Use alt + hjkl to resize windows
+" Use alt + hjkl or arrow keys to resize windows
 nnoremap <M-j>    :resize -2<CR>
 nnoremap <M-k>    :resize +2<CR>
 nnoremap <M-h>    :vertical resize -2<CR>
 nnoremap <M-l>    :vertical resize +2<CR>
+nnoremap <Up>    :resize +2<CR>
+nnoremap <Down>  :resize -2<CR>
+nnoremap <Left>  :vertical resize -2<CR>
+nnoremap <Right> :vertical resize +2<CR>
 
 " Toggle between vertical and horizontal split
 map <Leader>th <C-w>t<C-w>H
@@ -150,7 +155,27 @@ vnoremap < <gv
 vnoremap > >gv
 
 " turn off search highlight
-nnoremap <leader><space> :nohlsearch<CR>
+nnoremap <leader><space> :let @/=''<CR>
+
+" Prevent x from overriding what's in the clipboard.
+noremap x "_x
+noremap X "_x
+
+" Prevent selecting and pasting from overwriting what you originally copied.
+xnoremap p pgvy
+
+" Exit terminal mode
+tnoremap <Esc> <C-\><C-n>
+
+" Navigate the complete menu items like CTRL+n / CTRL+p would.
+inoremap <expr> <Down> pumvisible() ? "<C-n>" :"<Down>"
+inoremap <expr> <Up> pumvisible() ? "<C-p>" : "<Up>"
+
+" Select the complete menu item like CTRL+y would.
+inoremap <expr> <Right> pumvisible() ? "<C-y>" : "<Right>"
+
+" Cancel the complete menu item like CTRL+e would.
+inoremap <expr> <Left> pumvisible() ? "<C-e>" : "<Left>"
 
 " FZF
 nmap <leader>f :Files<CR> 
@@ -169,30 +194,8 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit'
   \}
 
-" NERDTree
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeIgnore = []
-let g:NERDTreeStatusline = ''
-" Automaticaly close nvim if NERDTree is only thing left open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" Toggle
-nnoremap <silent> <leader>e :NERDTreeToggle<CR>
-
-" Coc Config
-let g:coc_global_extensions = [
-  \ 'coc-elixir',
-  \ 'coc-pairs',
-  \ 'coc-emmet',
-  \ 'coc-css',
-  \ 'coc-html',
-  \ 'coc-json',
-  \ 'coc-prettier',
-  \ 'coc-tsserver',
-  \ 'coc-eslint',
-  \ 'coc-tslint',
-  \ 'coc-lists',
-  \ 'coc-highlight',
-  \ 'coc-texlab'
-  \]
+" Sinppets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
