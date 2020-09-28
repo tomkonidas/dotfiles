@@ -56,6 +56,9 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'tpope/vim-endwise'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-unimpaired'
+    Plug 'tpope/vim-eunuch'
+    Plug 'lambdalisue/fern.vim'
+    Plug 'lambdalisue/fern-mapping-mark-children.vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'airblade/vim-gitgutter'
@@ -93,26 +96,73 @@ au! BufWritePost $MYVIMRC source %
 
 " netrw --- 
 " Open explorer netrw
-nnoremap <leader>e :Explore<CR>
-let g:netrw_liststyle = 3
-let g:netrw_home=$XDG_CACHE_HOME.'/.local/share/nvim/netrw'
-let g:netrw_banner = 0
-let g:netrw_sort_sequence = '[\/]$,*'
+" nnoremap <leader>e :Explore<CR>
+" let g:netrw_liststyle = 3
+" let g:netrw_home=$XDG_CACHE_HOME.'/.local/share/nvim/netrw'
+" let g:netrw_banner = 0
+" let g:netrw_sort_sequence = '[\/]$,*'
 
+" Disable netrw.
+let g:loaded_netrw  = 1
+let g:loaded_netrwPlugin = 1
+let g:loaded_netrwSettings = 1
+let g:loaded_netrwFileHandlers = 1
+
+augroup my-fern-hijack
+  autocmd!
+  autocmd BufEnter * ++nested call s:hijack_directory()
+augroup END
+
+function! s:hijack_directory() abort
+  let path = expand('%:p')
+  if !isdirectory(path)
+    return
+  endif
+  bwipeout %
+  execute printf('Fern %s', fnameescape(path))
+endfunction
+
+" Custom settings and mappings.
+let g:fern#disable_default_mappings = 1
+
+  noremap <silent> <Leader><Enter> :Fern . -drawer -reveal=% -toggle -width=35<CR><C-w>=
+
+function! FernInit() abort
+  nmap <buffer><expr>
+        \ <Plug>(fern-my-open-expand-collapse)
+        \ fern#smart#leaf(
+        \   "\<Plug>(fern-action-open:select)",
+        \   "\<Plug>(fern-action-expand)",
+        \   "\<Plug>(fern-action-collapse)",
+        \ )
+  nmap <buffer> <CR> <Plug>(fern-my-open-expand-collapse)
+  nmap <buffer> <2-LeftMouse> <Plug>(fern-my-open-expand-collapse)
+  nmap <buffer> n <Plug>(fern-action-new-path)
+  nmap <buffer> d <Plug>(fern-action-remove)
+  nmap <buffer> m <Plug>(fern-action-move)
+  nmap <buffer> M <Plug>(fern-action-rename)
+  nmap <buffer> h <Plug>(fern-action-hidden-toggle)
+  nmap <buffer> r <Plug>(fern-action-reload)
+  nmap <buffer> k <Plug>(fern-action-mark-toggle)
+  nmap <buffer> K <Plug>(fern-action-mark-children:leaf)
+  nmap <buffer> b <Plug>(fern-action-open:split)
+  nmap <buffer> v <Plug>(fern-action-open:vsplit)
+  nmap <buffer><nowait> < <Plug>(fern-action-leave)
+  nmap <buffer><nowait> > <Plug>(fern-action-enter)
+endfunction
+
+augroup FernGroup
+  autocmd!
+  autocmd FileType fern call FernInit()
+augroup END
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 
-nnoremap rm :!rm %
-cmap w!! w !sudo tee %
-
 " Close a buffer
 nnoremap <leader>q :bd<CR>
-
-" Choose a buffer
-nnoremap <leader>b :Buffers<CR>
 
 " Toggle through buffers
 nnoremap <Tab> :bnext<CR>
@@ -143,10 +193,6 @@ nnoremap <M-j>   :resize -2<CR>
 nnoremap <M-k>   :resize +2<CR>
 nnoremap <M-h>   :vertical resize -2<CR>
 nnoremap <M-l>   :vertical resize +2<CR>
-nnoremap <Up>    :resize +2<CR>
-nnoremap <Down>  :resize -2<CR>
-nnoremap <Left>  :vertical resize -2<CR>
-nnoremap <Right> :vertical resize +2<CR>
 
 " Toggle between vertical and horizontal split
 map <Leader>th <C-w>t<C-w>H
@@ -189,6 +235,8 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 " FZF
 nmap <leader>f :Files<CR> 
 nmap <leader>g :GFiles<CR> 
+nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>l :Lines<CR>
 
 " Empty value to disable preview window altogether
 let g:fzf_preview_window = ''
