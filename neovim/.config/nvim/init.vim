@@ -225,11 +225,18 @@ inoremap <expr> <Left> pumvisible() ? "<C-e>" : "<Left>"
 " Quick-Scope: Trigger a highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
+" Git
+nmap <leader>gs :G<CR>
+nmap <leader>gh :diffget //2<CR>
+nmap <leader>gl :diffget //3<CR>
+
 " FZF
 nmap <leader>f :Files<CR>
-nmap <leader>g :GFiles<CR>
+nmap <C-p> :GFiles<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>l :Lines<CR>
+
+let g:fzf_layout = { 'window': {'width': 0.8, 'height': 0.8}}
 
 " Empty value to disable preview window altogether
 let g:fzf_preview_window = ''
@@ -237,7 +244,6 @@ let g:fzf_preview_window = ''
 " Always enable preview window on the right with 60% width
 let g:fzf_preview_window = 'right:60%'
 
-nnoremap <C-p> :FZF<CR>
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
