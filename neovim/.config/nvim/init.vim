@@ -29,7 +29,7 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-set splitbelow splitright
+set splitright
 set conceallevel=0
 set path=.,,**
 set wildmenu
