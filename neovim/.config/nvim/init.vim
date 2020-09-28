@@ -94,14 +94,6 @@ set background=dark
 
 au! BufWritePost $MYVIMRC source %
 
-" netrw --- 
-" Open explorer netrw
-" nnoremap <leader>e :Explore<CR>
-" let g:netrw_liststyle = 3
-" let g:netrw_home=$XDG_CACHE_HOME.'/.local/share/nvim/netrw'
-" let g:netrw_banner = 0
-" let g:netrw_sort_sequence = '[\/]$,*'
-
 " Disable netrw.
 let g:loaded_netrw  = 1
 let g:loaded_netrwPlugin = 1
