@@ -55,9 +55,11 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-endwise'
     Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-unimpaired'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'airblade/vim-gitgutter'
+    Plug 'unblevable/quick-scope'
     Plug 'mattn/emmet-vim'
     Plug 'mhinz/vim-mix-format'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -180,6 +182,9 @@ inoremap <expr> <C-l> pumvisible() ? "<C-y>" : "<C-l>"
 
 " Cancel the complete menu item like CTRL+e would.
 inoremap <expr> <Left> pumvisible() ? "<C-e>" : "<Left>"
+
+" Quick-Scope: Trigger a highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " FZF
 nmap <leader>f :Files<CR> 
