@@ -23,7 +23,7 @@ set showcmd
 set showmatch
 set clipboard+=unnamedplus
 set iskeyword+=-
-set mouse=a 
+set mouse=a
 set formatoptions-=cro
 set tabstop=2
 set shiftwidth=2
@@ -72,6 +72,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'vim-scripts/AutoComplPop'
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
+    Plug 'ntpeters/vim-better-whitespace'
 " Syntax
     Plug 'elixir-editors/vim-elixir'
     Plug 'sheerun/vim-polyglot'
@@ -225,8 +226,8 @@ inoremap <expr> <Left> pumvisible() ? "<C-e>" : "<Left>"
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " FZF
-nmap <leader>f :Files<CR> 
-nmap <leader>g :GFiles<CR> 
+nmap <leader>f :Files<CR>
+nmap <leader>g :GFiles<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>l :Lines<CR>
 
@@ -248,3 +249,7 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
+" Better whitespace
+let g:strip_whitespace_confirm=0
+let g:strip_whitelines_at_eof=1
+let g:strip_whitespace_on_save=1
