@@ -18,7 +18,6 @@ set clipboard+=unnamedplus
 set undofile
 set lazyredraw
 set completeopt=menuone,noinsert,noselect
-set termguicolors
 set updatetime=50
 set shortmess+=c
 set signcolumn=yes
@@ -56,12 +55,20 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
+if (has("termguicolors"))
+  set termguicolors
+endif
 if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 
-colorscheme gruvbox
+try
+  colorscheme gruvbox
+catch
+  colorscheme peachpuff
+endtry
+
 set background=dark
 
 let mapleader = " "
