@@ -1,261 +1,282 @@
-set nocompatible
-
 syntax on
-filetype plugin indent on
-set encoding=utf-8
 
-let mapleader ="\<space>"
-
-set hidden
-set nu
+set noerrorbells
 set relativenumber
-set nowrap
+set nu
+set mouse=a
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set scrolloff=8
+set smartindent
 set smartcase
+set nowrap
 set noswapfile
 set nobackup
-set nowritebackup
-set undodir=~/.local/share/nvim/undodir
+set undodir=~/.vim/undodir
 set undofile
-set incsearch
 set lazyredraw
-set cursorline
-set showcmd
-set showmatch
-set clipboard+=unnamedplus
-set iskeyword+=-
-set mouse=a
-set formatoptions-=cro
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-set splitright
-set conceallevel=0
-set path=.,,**
-set wildmenu
-set wildmode=longest,list,full
-set wildignore+=*/node_modules/*
+set completeopt=menuone,noinsert,noselect
+set termguicolors
+set updatetime=50
+set shortmess+=c
+set signcolumn=yes
 
 set cursorline
+set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
-
-if ! filereadable(expand('~/.local/share/nvim/site/autoload/plug.vim'))
-  echo "Downloading junegunn/vim-plug to manage plugins..."
-  silent !curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-let g:polyglot_disabled = ['javascript']
-
-" Plugins ---
-call plug#begin('~/.local/share/nvim/site/plugged')
-" Tools
+call plug#begin('~/.vim/plugged')
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-endwise'
-    Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-unimpaired'
-    Plug 'tpope/vim-eunuch'
-    Plug 'lambdalisue/fern.vim'
-    Plug 'lambdalisue/fern-mapping-mark-children.vim'
+    Plug 'vim-utils/vim-man'
+    Plug 'mbbill/undotree'
+    Plug 'bkad/camelcasemotion'
+    Plug 'mhinz/vim-mix-format'
+    Plug 'sheerun/vim-polyglot'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    Plug 'stsewd/fzf-checkout.vim'
     Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
     Plug 'airblade/vim-gitgutter'
     Plug 'unblevable/quick-scope'
     Plug 'mattn/emmet-vim'
-    Plug 'mhinz/vim-mix-format'
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
-    Plug 'slashmili/alchemist.vim'
-    Plug 'ryanoasis/vim-devicons'
-    Plug 'vim-scripts/AutoComplPop'
-    Plug 'SirVer/ultisnips'
-    Plug 'honza/vim-snippets'
-    Plug 'ntpeters/vim-better-whitespace'
-" Syntax
-    Plug 'elixir-editors/vim-elixir'
-    Plug 'sheerun/vim-polyglot'
-    Plug 'yuezk/vim-js'
-    Plug 'direnv/direnv.vim'
-" Color-schemes
     Plug 'morhetz/gruvbox'
+    Plug 'ntpeters/vim-better-whitespace'
+    Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
-if (has("termguicolors"))
- set termguicolors
+if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
-try
-    colorscheme gruvbox
-catch
-    colorscheme peachpuff
-endtry
 
+colorscheme gruvbox
 set background=dark
 
-au! BufWritePost $MYVIMRC source %
+let mapleader = " "
 
-" Disable netrw.
-let g:loaded_netrw  = 1
-let g:loaded_netrwPlugin = 1
-let g:loaded_netrwSettings = 1
-let g:loaded_netrwFileHandlers = 1
+" Copy/Pasting
+nnoremap <leader>d "_d
+xnoremap <leader>d "_d
+vnoremap <leader>p "_dP
 
-augroup my-fern-hijack
-  autocmd!
-  autocmd BufEnter * ++nested call s:hijack_directory()
-augroup END
-
-function! s:hijack_directory() abort
-  let path = expand('%:p')
-  if !isdirectory(path)
-    return
-  endif
-  bwipeout %
-  execute printf('Fern %s', fnameescape(path))
-endfunction
-
-" Custom settings and mappings.
-let g:fern#disable_default_mappings = 1
-
-  noremap <silent> <Leader><Enter> :Fern . -drawer -reveal=% -toggle -width=35<CR><C-w>=
-
-function! FernInit() abort
-  nmap <buffer><expr>
-        \ <Plug>(fern-my-open-expand-collapse)
-        \ fern#smart#leaf(
-        \   "\<Plug>(fern-action-open:select)",
-        \   "\<Plug>(fern-action-expand)",
-        \   "\<Plug>(fern-action-collapse)",
-        \ )
-  nmap <buffer> <CR> <Plug>(fern-my-open-expand-collapse)
-  nmap <buffer> <2-LeftMouse> <Plug>(fern-my-open-expand-collapse)
-  nmap <buffer> n <Plug>(fern-action-new-path)
-  nmap <buffer> d <Plug>(fern-action-remove)
-  nmap <buffer> m <Plug>(fern-action-move)
-  nmap <buffer> M <Plug>(fern-action-rename)
-  nmap <buffer> h <Plug>(fern-action-hidden-toggle)
-  nmap <buffer> r <Plug>(fern-action-reload)
-  nmap <buffer> k <Plug>(fern-action-mark-toggle)
-  nmap <buffer> K <Plug>(fern-action-mark-children:leaf)
-  nmap <buffer> b <Plug>(fern-action-open:split)
-  nmap <buffer> v <Plug>(fern-action-open:vsplit)
-  nmap <buffer><nowait> < <Plug>(fern-action-leave)
-  nmap <buffer><nowait> > <Plug>(fern-action-enter)
-endfunction
-
-augroup FernGroup
-  autocmd!
-  autocmd FileType fern call FernInit()
-augroup END
-
-" Airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-
-
-" Close a buffer
-nnoremap <leader>q :bd<CR>
-
-" Toggle through buffers
+" Buffers
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
+nnoremap <leader>q :bd<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
 
-" Compile PDF files on write
-autocmd BufWritePost *.tex silent! execute "!pdflatex % >/dev/null 2>&1"
-autocmd BufRead,BufNewFile *.tex setlocal spell
-
-" Elixir
-let g:mix_format_on_save = 1
-
-" Spell-check set to <leader>o, 'o' for 'orthography':
-map <leader>o :setlocal spell! spelllang=en_us<CR>
+nnoremap <leader><space> :let @/=''<CR>
 
 " Move viusal selections
-xnoremap K :move '<-2<CR>gv-gv
 xnoremap J :move '>+1<CR>gv-gv
+xnoremap K :move '<-2<CR>gv-gv
 
-" Remap split nav to CTRL + <h,j,k,l>
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-" Use alt + hjkl or arrow keys to resize windows
-nnoremap <M-j>   :resize -2<CR>
-nnoremap <M-k>   :resize +2<CR>
-nnoremap <M-h>   :vertical resize -2<CR>
-nnoremap <M-l>   :vertical resize +2<CR>
+nmap <silent> <C-k> :wincmd k<CR>
+nmap <silent> <C-j> :wincmd j<CR>
+nmap <silent> <C-h> :wincmd h<CR>
+nmap <silent> <C-l> :wincmd l<CR>
 
 " Toggle between vertical and horizontal split
 map <Leader>th <C-w>t<C-w>H
 map <Leader>tk <C-w>t<C-w>K
 
+" Resize splits
+nnoremap <Leader>+ :vertical resize +5<CR>
+nnoremap <Leader>- :vertical resize -5<CR>
+nnoremap <Leader>rp :resize 100<CR>
+
 " Better tabbing
 vnoremap < <gv
 vnoremap > >gv
 
-" turn off search highlight
-nnoremap <leader><space> :let @/=''<CR>
+" Toggle Spell-check
+map <leader>o :setlocal spell! spelllang=en_us<CR>
 
-" Prevent x from overriding what's in the clipboard.
-noremap x "_x
-noremap X "_x
+let g:netrw_browse_split = 4
+let g:netrw_banner = 0
+let g:netrw_winsize = 25
+let g:netrw_localrmdir='rm -r'
 
-" Prevent selecting and pasting from overwriting what you originally copied.
-xnoremap p pgvy
-
-" Exit terminal mode
-tnoremap <Esc> <C-\><C-n>
-
-" Trigger Omnicomplete
-inoremap <C-Space> <C-x><C-o>
-inoremap <C-@> <C-Space>
-
-" Navigate the complete menu items like CTRL+n / CTRL+p would.
-inoremap <expr> <C-j> pumvisible() ? "<C-n>" :"<C-j>"
-inoremap <expr> <C-k> pumvisible() ? "<C-p>" : "<C-k>"
-
-" Select the complete menu item like CTRL+y would.
-inoremap <expr> <C-l> pumvisible() ? "<C-y>" : "<C-l>"
-
-" Cancel the complete menu item like CTRL+e would.
-inoremap <expr> <Left> pumvisible() ? "<C-e>" : "<Left>"
-
-" Quick-Scope: Trigger a highlight in the appropriate direction when pressing these keys:
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-
-" Git
-nmap <leader>gs :G<CR>
-nmap <leader>gh :diffget //2<CR>
-nmap <leader>gl :diffget //3<CR>
+let g:mix_format_on_save = 1
 
 " FZF
-nmap <leader>f :Files<CR>
-nmap <C-p> :GFiles<CR>
-nnoremap <silent> <Leader>b :Buffers<CR>
-nnoremap <silent> <Leader>l :Lines<CR>
-
-let g:fzf_layout = { 'window': {'width': 0.8, 'height': 0.8}}
-
-" Empty value to disable preview window altogether
-let g:fzf_preview_window = ''
-
-" Always enable preview window on the right with 60% width
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let $FZF_DEFAULT_OPTS='--reverse'
 let g:fzf_preview_window = 'right:60%'
-
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit'
   \}
 
-" Sinppets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+nnoremap <silent> <Leader>l :Lines<CR>
+
+" Git
+nmap <leader>gs :G<CR>
+nmap <leader>gh :diffget //2<CR>
+nmap <leader>gl :diffget //3<CR>
+nnoremap <Leader>gf :GFiles<CR>
+nnoremap <leader>gc :GBranches<CR>
+nnoremap <leader>ga :Git fetch --all<CR>
+nnoremap <leader>grum :Git rebase upstream/master<CR>
+nnoremap <leader>grom :Git rebase origin/master<CR>
+
+nnoremap <leader>u :UndotreeShow<CR>
+
+nnoremap <C-p> :Files<CR>
+nnoremap <leader>e :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+
+let g:camelcasemotion_key = ' '
+
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+" Quick-Scope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " Better whitespace
 let g:strip_whitespace_confirm=0
 let g:strip_whitelines_at_eof=1
 let g:strip_whitespace_on_save=1
+
+" COC
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocActionAsync('doHover')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of language server.
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Mappings for CoCList
+" Show all diagnostics.
+nnoremap <silent><nowait> ,a  :<C-u>CocList diagnostics<cr>
+" Manage extensions.
+nnoremap <silent><nowait> ,e  :<C-u>CocList extensions<cr>
+" Show commands.
+nnoremap <silent><nowait> ,c  :<C-u>CocList commands<cr>
+" Find symbol of current document.
+nnoremap <silent><nowait> ,o  :<C-u>CocList outline<cr>
+" Search workspace symbols.
+nnoremap <silent><nowait> ,s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent><nowait> ,j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent><nowait> ,k  :<C-u>CocPrev<CR>
+" Resume latest coc list.
+nnoremap <silent><nowait> ,p  :<C-u>CocListResume<CR>
+
+
+" Automatically source vimrc on save.
+autocmd! bufwritepost $MYVIMRC source $MYVIMRC | echom "Sourced " . $MYVIMRC
