@@ -14,6 +14,7 @@ set nowrap
 set noswapfile
 set nobackup
 set undodir=~/.local/share/nvim/undodir
+set clipboard+=unnamedplus
 set undofile
 set lazyredraw
 set completeopt=menuone,noinsert,noselect
