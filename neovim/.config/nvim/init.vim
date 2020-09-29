@@ -139,7 +139,13 @@ nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <C-p> :Files<CR>
 nnoremap <leader>e :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 
-let g:camelcasemotion_key = ' '
+" CamelCaseMotion
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
