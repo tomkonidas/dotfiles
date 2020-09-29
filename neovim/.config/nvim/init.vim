@@ -127,6 +127,7 @@ nmap <leader>gs :G<CR>
 nmap <leader>gh :diffget //2<CR>
 nmap <leader>gl :diffget //3<CR>
 nnoremap <Leader>gf :GFiles<CR>
+nnoremap <Leader>gp :Gpush<CR>
 nnoremap <leader>gc :GBranches<CR>
 nnoremap <leader>ga :Git fetch --all<CR>
 nnoremap <leader>grum :Git rebase upstream/master<CR>
