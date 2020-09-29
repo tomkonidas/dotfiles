@@ -1,5 +1,6 @@
 let g:coc_global_extensions = [
-  \ 'coc-marketplace'
+  \ 'coc-marketplace',
+  \ 'coc-vimlsp'
   \]
 
 inoremap <silent><expr> <TAB>
