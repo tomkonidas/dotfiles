@@ -10,5 +10,7 @@
 	b = branch
 	c = commit
 	cd = commit --amend
+	p = push
+	rom = rebase origin/master
 [pull]
 	rebase = false
