@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "coc-marketplace": ">=1.7.0",
+    "coc-vimlsp": ">=0.10.1"
+  }
+}

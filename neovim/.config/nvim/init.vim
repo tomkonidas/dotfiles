@@ -52,6 +52,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'unblevable/quick-scope'
     Plug 'mattn/emmet-vim'
     Plug 'morhetz/gruvbox'
+    Plug 'joshdick/onedark.vim'
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'ryanoasis/vim-devicons'
 call plug#end()
@@ -65,7 +66,7 @@ if exists('+termguicolors')
 endif
 
 try
-  colorscheme gruvbox
+  colorscheme onedark
 catch
   colorscheme peachpuff
 endtry
