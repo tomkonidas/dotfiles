@@ -28,6 +28,7 @@ npm-debug.log
 
 # Environment
 .envrc*
+.env
 tmp
 
 # ASDF
