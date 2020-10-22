@@ -5,7 +5,11 @@ source /usr/local/share/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundle git
+antigen bundle common-aliases
 antigen bundle command-not-found
+antigen bundle unixorn/git-extra-commands
+antigen bundle psprint/zsh-navigation-tools
+antigen bundle desyncr/auto-ls
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
