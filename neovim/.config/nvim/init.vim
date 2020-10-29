@@ -80,10 +80,12 @@ nnoremap <leader>d "_d
 xnoremap <leader>d "_d
 vnoremap <leader>p "_dP
 "
-" Copy filename to clipboard
+" Copy short filepath to clipboard
 nmap <leader>cs :let @*=expand("%")<CR>
-" Copy filename and full path to clipboard
+" Copy long filepath to clipboard
 nmap <leader>cl :let @*=expand("%:p")<CR>
+" Copy filename to clipboard
+nmap <leader>cf :let @*=expand("%:t")<CR>
 
 " Buffers
 nnoremap <Tab> :bnext<CR>
