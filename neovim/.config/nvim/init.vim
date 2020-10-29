@@ -79,6 +79,11 @@ let mapleader = " "
 nnoremap <leader>d "_d
 xnoremap <leader>d "_d
 vnoremap <leader>p "_dP
+"
+" Copy filename to clipboard
+nmap <leader>cs :let @*=expand("%")<CR>
+" Copy filename and full path to clipboard
+nmap <leader>cl :let @*=expand("%:p")<CR>
 
 " Buffers
 nnoremap <Tab> :bnext<CR>
@@ -112,6 +117,7 @@ vnoremap > >gv
 
 " Toggle Spell-check
 map <leader>o :setlocal spell! spelllang=en_us<CR>
+
 
 let g:netrw_browse_split = 4
 let g:netrw_banner = 0
