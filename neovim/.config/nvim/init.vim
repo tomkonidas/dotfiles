@@ -154,7 +154,7 @@ nnoremap <leader>grom :Git rebase origin/master<CR>
 nnoremap <leader>u :UndotreeShow<CR>
 
 nnoremap <C-p> :Files<CR>
-nnoremap <leader>e :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+" nnoremap <leader>e :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 
 " CamelCaseMotion
 map <silent> w <Plug>CamelCaseMotion_w

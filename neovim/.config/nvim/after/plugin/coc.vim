@@ -1,6 +1,7 @@
 let g:coc_global_extensions = [
   \ 'coc-marketplace',
-  \ 'coc-vimlsp'
+  \ 'coc-vimlsp',
+  \ 'coc-explorer',
   \]
 
 inoremap <silent><expr> <TAB>
@@ -29,6 +30,9 @@ if exists('*complete_info')
 else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
+
+" Toggle explorer
+nmap <leader>e :CocCommand explorer<CR>
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
