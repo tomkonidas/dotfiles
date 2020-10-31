@@ -11,6 +11,3 @@ Sessionx.vim
 tags
 # Persistent undo
 [._]*.un~
-
-# Coc
-coc/commands

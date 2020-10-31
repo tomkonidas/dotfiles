@@ -120,12 +120,6 @@ vnoremap > >gv
 " Toggle Spell-check
 map <leader>o :setlocal spell! spelllang=en_us<CR>
 
-
-let g:netrw_browse_split = 4
-let g:netrw_banner = 0
-let g:netrw_winsize = 25
-let g:netrw_localrmdir='rm -r'
-
 let g:mix_format_on_save = 1
 
 " FZF
