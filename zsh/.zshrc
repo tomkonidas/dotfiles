@@ -18,6 +18,9 @@ antigen apply
 
 DEFAULT_USER=`whoami`
 
+# Enable iex shell history
+export ERL_AFLAGS="-kernel shell_history enabled"
+
 # asdf - Manage multiple runtime versions with a single CLI tool
 . /usr/local/opt/asdf/asdf.sh
 
