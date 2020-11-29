@@ -11,3 +11,7 @@ Sessionx.vim
 tags
 # Persistent undo
 [._]*.un~
+
+# COC
+neovim/.config/coc/*
+!neovim/.config/coc/extensions
