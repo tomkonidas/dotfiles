@@ -4,6 +4,7 @@ set encoding=UTF-8
 set noerrorbells
 set relativenumber
 set nu
+set hidden
 set mouse=a
 set tabstop=4 softtabstop=4
 set shiftwidth=4
