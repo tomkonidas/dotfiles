@@ -37,7 +37,6 @@ endif
 
 call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'prettier/vim-prettier', { 'do': 'npm install' }
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
