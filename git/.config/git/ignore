@@ -13,6 +13,7 @@ Icon
 *.un~
 Session.vim
 .netrwhist
+neovim/.config/coc
 
 # Elixir
 .elixir_ls
