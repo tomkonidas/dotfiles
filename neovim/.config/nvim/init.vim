@@ -42,7 +42,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'tpope/vim-commentary'
     Plug 'vim-utils/vim-man'
     Plug 'mbbill/undotree'
-    Plug 'bkad/camelcasemotion'
+    Plug 'chaoren/vim-wordmotion'
     Plug 'mhinz/vim-mix-format'
     Plug 'sheerun/vim-polyglot'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -151,14 +151,6 @@ nnoremap <leader>u :UndotreeShow<CR>
 
 nnoremap <C-p> :Files<CR>
 " nnoremap <leader>e :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
-
-" CamelCaseMotion
-map <silent> w <Plug>CamelCaseMotion_w
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-sunmap w
-sunmap b
-sunmap e
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
