@@ -37,6 +37,7 @@ endif
 
 call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'prettier/vim-prettier', { 'do': 'npm install' }
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
@@ -52,7 +53,6 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'airblade/vim-gitgutter'
     Plug 'unblevable/quick-scope'
     Plug 'mattn/emmet-vim'
-    Plug 'morhetz/gruvbox'
     Plug 'joshdick/onedark.vim'
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'ryanoasis/vim-devicons'
@@ -76,11 +76,6 @@ set background=dark
 
 let mapleader = " "
 
-" Copy/Pasting
-nnoremap <leader>d "_d
-xnoremap <leader>d "_d
-vnoremap <leader>p "_dP
-"
 " Copy short filepath to clipboard
 nmap <leader>cs :let @*=expand("%")<CR>
 " Copy long filepath to clipboard
