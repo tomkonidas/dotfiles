@@ -1,5 +1,6 @@
 syntax on
 
+set exrc
 set encoding=UTF-8
 set noerrorbells
 set relativenumber
