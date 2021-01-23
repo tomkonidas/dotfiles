@@ -86,7 +86,7 @@ nmap <leader>cf :let @*=expand("%:t")<CR>
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 nnoremap <leader>q :bd<CR>
-nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
 
 nnoremap <leader><space> :let @/=''<CR>
 
@@ -100,13 +100,13 @@ nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
 " Toggle between vertical and horizontal split
-map <Leader>th <C-w>t<C-w>H
-map <Leader>tk <C-w>t<C-w>K
+map <leader>th <C-w>t<C-w>H
+map <leader>tk <C-w>t<C-w>K
 
 " Resize splits
-nnoremap <Leader>+ :vertical resize +5<CR>
-nnoremap <Leader>- :vertical resize -5<CR>
-nnoremap <Leader>rp :resize 100<CR>
+nnoremap <leader>+ :vertical resize +5<CR>
+nnoremap <leader>- :vertical resize -5<CR>
+nnoremap <leader>rp :resize 100<CR>
 
 " Better tabbing
 vnoremap < <gv
@@ -127,14 +127,14 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit'
   \}
 
-nnoremap <silent> <Leader>l :Lines<CR>
+nnoremap <silent> <leader>l :Lines<CR>
 
 " Git
 nmap <leader>gs :G<CR>
 nmap <leader>gh :diffget //2<CR>
 nmap <leader>gl :diffget //3<CR>
-nnoremap <Leader>gf :GFiles<CR>
-nnoremap <Leader>gp :Gpush<CR>
+nnoremap <leader>gf :GFiles<CR>
+nnoremap <leader>gp :Gpush<CR>
 nnoremap <leader>gc :GBranches<CR>
 nnoremap <leader>ga :Git fetch --all<CR>
 nnoremap <leader>grum :Git rebase upstream/master<CR>
