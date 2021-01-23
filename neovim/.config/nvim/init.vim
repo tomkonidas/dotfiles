@@ -51,7 +51,6 @@ call plug#begin(glob(stdpath('data') . '/site/plugged'))
     Plug 'stsewd/fzf-checkout.vim'
     Plug 'vim-airline/vim-airline'
     Plug 'airblade/vim-gitgutter'
-    Plug 'unblevable/quick-scope'
     Plug 'mattn/emmet-vim'
     Plug 'joshdick/onedark.vim'
     Plug 'ntpeters/vim-better-whitespace'
@@ -149,9 +148,6 @@ nnoremap <C-p> :Files<CR>
 
 " Airline
 let g:airline_powerline_fonts = 1
-
-" Quick-Scope
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " Better whitespace
 let g:strip_whitespace_confirm=0
