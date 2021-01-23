@@ -15,6 +15,6 @@
 	rom = rebase origin/master
 	l = log --oneline --decorate
 [pull]
-	rebase = false
+	rebase = true
 [rebase]
 	autosquash = true
