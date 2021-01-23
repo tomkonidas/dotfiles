@@ -148,9 +148,7 @@ nnoremap <C-p> :Files<CR>
 " nnoremap <leader>e :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 
 " Airline
-let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " Quick-Scope
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
