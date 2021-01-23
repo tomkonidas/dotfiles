@@ -14,3 +14,5 @@
 	rom = rebase origin/master
 [pull]
 	rebase = false
+[rebase]
+	autosquash = true
