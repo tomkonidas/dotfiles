@@ -154,5 +154,11 @@ let g:strip_whitespace_confirm=0
 let g:strip_whitelines_at_eof=1
 let g:strip_whitespace_on_save=1
 
+" Open config file from anywhere
+nnoremap <leader>rc :e $MYVIMRC<CR>
+
+" Source config
+nnoremap <leader>so :source $MYVIMRC<cr>
+
 " Automatically source vimrc on save.
 autocmd! bufwritepost $MYVIMRC source $MYVIMRC | echom "Sourced " . $MYVIMRC
