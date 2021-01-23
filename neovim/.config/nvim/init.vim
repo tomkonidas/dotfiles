@@ -30,13 +30,13 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " Install vim-plug if not found
-if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+if empty(glob(stdpath('data') . '/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.local/share/nvim/site/plugged')
+call plug#begin(glob(stdpath('data') . '/site/plugged'))
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
