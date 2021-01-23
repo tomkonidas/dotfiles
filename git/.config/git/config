@@ -12,6 +12,7 @@
 	cd = commit --amend
 	p = push
 	rom = rebase origin/master
+	l = log --oneline --decorate
 [pull]
 	rebase = false
 [rebase]
