@@ -127,7 +127,7 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit'
   \}
 
-nnoremap <silent> <leader>l :Lines<CR>
+nnoremap <silent> <leader>l :BLines<CR>
 
 " Git
 nmap <leader>gs :G<CR>
