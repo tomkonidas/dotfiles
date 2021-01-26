@@ -91,8 +91,6 @@ nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <leader><space> :let @/=''<CR>
 
 " Move viusal selections
-nnoremap J :move .+1<CR>==
-nnoremap K :move .-2<CR>==
 vnoremap J :move '>+1<CR>gv=gv
 vnoremap K :move '<-2<CR>gv=gv
 
