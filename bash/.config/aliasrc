@@ -17,9 +17,10 @@ alias rm="rm -v"
 alias mkd="mkdir -pv"
 
 # Pretty
-alias ls="ls -hN --color=auto --group-directories-first" 
+alias ls="ls -hN --color=auto --group-directories-first"
 alias grep="grep --color=auto"
 alias egrep='egrep --color=auto'
 alias fgrep="fgrep --color=auto"
-alias diff="diff --color=auto" 
+alias diff="diff --color=auto"
 alias mount="mount |column -t"
+alias tree="tree -C"
