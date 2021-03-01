@@ -88,7 +88,7 @@ nnoremap <S-Tab> :bprevious<CR>
 nnoremap <leader>q :bd<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 
-nnoremap <leader><space> :let @/=''<CR>
+nnoremap <leader>c :let @/=''<CR>
 
 " Move viusal selections
 vnoremap J :move '>+1<CR>gv=gv
@@ -130,7 +130,7 @@ let g:fzf_action = {
 nnoremap <silent> <leader>l :BLines<CR>
 
 " Git
-nmap <leader>gs :G<CR>
+nmap <leader>gg :G<CR>
 nmap <leader>gh :diffget //2<CR>
 nmap <leader>gl :diffget //3<CR>
 nnoremap <leader>gf :GFiles<CR>
