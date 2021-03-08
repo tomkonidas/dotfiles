@@ -23,7 +23,6 @@ set lazyredraw
 set completeopt=menuone,noinsert,noselect
 set updatetime=50
 set shortmess+=c
-set signcolumn=yes
 
 set cursorline
 set colorcolumn=80
