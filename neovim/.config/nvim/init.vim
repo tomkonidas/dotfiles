@@ -48,9 +48,7 @@ call plug#begin(glob(stdpath('data') . '/site/plugged'))
     Plug 'sheerun/vim-polyglot'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    Plug 'stsewd/fzf-checkout.vim'
     Plug 'vim-airline/vim-airline'
-    Plug 'airblade/vim-gitgutter'
     Plug 'mattn/emmet-vim'
     Plug 'joshdick/onedark.vim'
     Plug 'ntpeters/vim-better-whitespace'
