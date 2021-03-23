@@ -40,6 +40,7 @@ call plug#begin(glob(stdpath('data') . '/site/plugged'))
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
     Plug 'vim-utils/vim-man'
+    Plug 'airblade/vim-gitgutter'
     Plug 'mbbill/undotree'
     Plug 'chaoren/vim-wordmotion'
     Plug 'mhinz/vim-mix-format'
