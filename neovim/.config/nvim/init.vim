@@ -1,8 +1,7 @@
-" -----------------------------------------------------------------------------
-" Plugin 
-" -----------------------------------------------------------------------------
+nnoremap <silent> <Space> <nop>
+let mapleader = " "
 
-:lua require('plugins')
+lua require('plugins')
 
 " -----------------------------------------------------------------------------
 " Colors
@@ -10,16 +9,16 @@
 
 set termguicolors
 set cursorline
-" set colorcolumn=80
-colorscheme dracula
 set background=dark
-highlight ColorColumn ctermbg=0 guibg=lightgrey
+colorscheme onedark
+" set colorcolumn=80
+" highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 
 " Plugin Config
-:lua require('plugins.lspconfig')
-:lua require('plugins.compe')
-:lua require('plugins.treesiter')
+lua require('plugins.lspconfig')
+lua require('plugins.treesiter')
+lua require('plugins.telescope')
 
 set exrc
 set noerrorbells
@@ -40,23 +39,40 @@ set undofile
 set undodir=~/.local/share/nvim/undodir
 set clipboard+=unnamedplus
 
-" Performance
-set lazyredraw
-set updatetime=50
-
-
-
 
 " -----------------------------------------------------------------------------
 " Key mappings
 " -----------------------------------------------------------------------------
 
-" Leader
-nnoremap <silent> <Space> <nop>
-let mapleader = " "
+
+" COMPLETION
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Manually trigger completion
+imap <silent> <C-Space> <Plug>(completion_trigger)
+
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+
+" Avoid showing message extra message when using completion
+set shortmess+=c
+
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+" COMPLETION --
+
+
+let g:mix_format_on_save = 1
+
+" Better whitespace
+let g:better_whitespace_enabled=0
+let g:strip_whitespace_confirm=0
+let g:strip_whitelines_at_eof=1
+let g:strip_whitespace_on_save=1
 
 " Explorer
-nnoremap <silent> <Leader>e :Lexplore<CR>
+nnoremap <silent> <Leader>e :Explore<CR>
 
 " Buffers
 nnoremap <silent> <Tab> :bnext<CR>
@@ -105,16 +121,6 @@ nnoremap <Leader>rc :%s///gc<Left><Left><Left>
 " Clear highlighted search results
 nnoremap <silent> <Leader><Space> :let @/=""<CR>
 
-" Navigate the complete menu items like CTRL+n / CTRL+p would.
-inoremap <expr> <Down> pumvisible() ? "<C-n>" :"<Down>"
-inoremap <expr> <Up> pumvisible() ? "<C-p>" : "<Up>"
-
-" Select the complete menu item like CTRL+y would.
-inoremap <expr> <Right> pumvisible() ? "<C-y>" : "<Right>"
-inoremap <expr> <CR> pumvisible() ? "<C-y>" :"<CR>"
-
-" Cancel the complete menu item like CTRL+e would.
-inoremap <expr> <Left> pumvisible() ? "<C-e>" : "<Left>"
 
 " Toggle Spell-check
 map <Leader>o :setlocal spell! spelllang=en_us<CR>
@@ -126,12 +132,16 @@ nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <silent> [g <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <silent> ]g <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+
 
 " -----------------------------------------------------------------------------
 " Autocommands
 " -----------------------------------------------------------------------------
+
+" Use completion-nvim in every buffer
+autocmd BufEnter * lua require'completion'.on_attach()
 
 " Auto-resize splits when Vim gets resized.
 autocmd VimResized * wincmd =

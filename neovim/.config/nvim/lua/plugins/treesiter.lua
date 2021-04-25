@@ -1,9 +1,14 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { 
+  ensure_installed = {
     "lua",
+    "comment",
+    "regex",
+    "scss",
+    "bash",
     "html",
     "javascript",
-    "json", 
+    "json",
+    "jsonc",
     "css",
     "toml",
     "yaml"

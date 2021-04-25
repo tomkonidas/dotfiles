@@ -18,14 +18,31 @@ return require('packer').startup(function()
   -- Toggle comments
   use 'tpope/vim-commentary'
 
+  -- Automatically add end after def, do, etc.
+  use 'tpope/vim-endwise'
+
   -- LSP
   use 'neovim/nvim-lspconfig'
-  use 'hrsh7th/nvim-compe'
+  use 'nvim-lua/completion-nvim'
 
-  -- Syntax
+  -- Finder
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+  }
+
+  use 'chaoren/vim-wordmotion'
+
+  use 'tpope/vim-surround'
+
+  use 'ntpeters/vim-better-whitespace'
+
+  -- Languages
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use 'elixir-lang/vim-elixir'
+  use 'sheerun/vim-polyglot'
+  use 'mhinz/vim-mix-format'
+  use 'mattn/emmet-vim'
 
-  -- You can alias plugin names
-  use {'dracula/vim', as = 'dracula'}
+  -- Colors
+  use 'joshdick/onedark.vim'
 end)
