@@ -19,6 +19,7 @@ colorscheme onedark
 lua require('plugins.lspconfig')
 lua require('plugins.treesiter')
 lua require('plugins.telescope')
+lua require('plugins.gitsigns')
 
 set exrc
 set noerrorbells
