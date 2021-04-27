@@ -52,4 +52,6 @@ return require('packer').startup(function()
 
   -- Colors
   use 'joshdick/onedark.vim'
+
+  use 'kyazdani42/nvim-web-devicons'
 end)
