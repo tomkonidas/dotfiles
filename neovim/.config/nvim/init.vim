@@ -30,6 +30,8 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set smartindent
+set ignorecase
+set smartcase
 set scrolloff=8
 set nowrap
 set mouse=a
@@ -120,7 +122,7 @@ nnoremap <Leader>r :%s///g<Left><Left>
 nnoremap <Leader>rc :%s///gc<Left><Left><Left>
 
 " Clear highlighted search results
-nnoremap <silent> <Leader><Space> :let @/=""<CR>
+map <silent> <CR> :nohl<CR>
 
 
 " Toggle Spell-check
