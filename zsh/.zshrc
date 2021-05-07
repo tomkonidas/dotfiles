@@ -27,8 +27,5 @@ export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac"
 # asdf - Manage multiple runtime versions with a single CLI tool
 . /usr/local/opt/asdf/asdf.sh
 
-# DOOM Emacs
-export PATH="$HOME/.emacs.d/bin:$PATH"
-
 # direnv - Load/unload environment variables based on $PWD
 eval "$(direnv hook zsh)"
