@@ -12,7 +12,7 @@ set cursorline
 set background=dark
 colorscheme onedark
 set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=lightgrey
+" highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 
 " Plugin Config
