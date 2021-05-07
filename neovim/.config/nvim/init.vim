@@ -139,6 +139,7 @@ nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> [g <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> ]g <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
+command! -nargs=0 Format :lua vim.lsp.buf.formatting()
 
 " -----------------------------------------------------------------------------
 " Autocommands
