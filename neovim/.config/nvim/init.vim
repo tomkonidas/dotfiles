@@ -20,6 +20,7 @@ lua require('plugins.lspconfig')
 lua require('plugins.treesiter')
 lua require('plugins.telescope')
 lua require('plugins.gitsigns')
+lua require('plugins.colorizer')
 
 set exrc
 set noerrorbells
