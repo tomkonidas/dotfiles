@@ -9,6 +9,7 @@ html_capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 require'lspconfig'.html.setup {
   capabilities = html_capabilities,
+  filetypes = { "html", "eelixir" }
  }
 
 require'lspconfig'.tsserver.setup{}
@@ -30,9 +31,5 @@ require'lspconfig'.stylelint_lsp.setup{
     }
   }
 }
-
-require'lspconfig'.bashls.setup{}
-
-require'lspconfig'.yamlls.setup{}
 
 require'lspconfig'.dockerls.setup{}
