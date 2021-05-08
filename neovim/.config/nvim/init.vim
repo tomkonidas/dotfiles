@@ -123,7 +123,7 @@ nnoremap <Leader>r :%s///g<Left><Left>
 nnoremap <Leader>rc :%s///gc<Left><Left><Left>
 
 " Clear highlighted search results
-map <silent> <CR> :nohl<CR>
+map <silent> <C-l> :nohl<CR>
 
 
 " Toggle Spell-check
