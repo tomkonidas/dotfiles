@@ -106,7 +106,7 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap <silent> <C-a> ggVG<CR>
 
 " Git
-nnoremap <silent> <Leader>gs :Git<CR>
+nnoremap <silent> <Leader>gg :Git<CR>
 nnoremap <silent> <Leader>gp :Git push<CR>
 
 " Move visual selections
