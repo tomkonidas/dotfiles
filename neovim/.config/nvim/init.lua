@@ -24,7 +24,7 @@ require('packer').startup(
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/nvim-compe'
     use 'hrsh7th/vim-vsnip'
-    use {'glepnir/galaxyline.nvim', branch = 'main'}
+    use 'itchyny/lightline.vim'
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use 'nvim-lua/plenary.nvim'
     use 'nvim-lua/popup.nvim'
@@ -69,6 +69,7 @@ opt('b', 'undofile', true)                  -- Enable undo files
 opt('o', 'clipboard', 'unnamedplus')        -- Share system clipboard
 opt('o', 'wildmode', 'list:longest')        -- Command-line completion mode
 opt('o', 'updatetime', 100)                 -- Faster buffer updates
+opt('o', 'showmode', false)                 -- Remove default MODE in status
 
 -- MAPPINGS -------------------------------------------------------------------
 map('n', [[<C-\>]], '<cmd>nohlsearch<CR>')
@@ -214,7 +215,6 @@ for ls, cfg in pairs({
   tsserver = {}
 }) do lsp[ls].setup(cfg) end
 
-
 -- COMPE
 opt('o', 'shortmess', vim.o.shortmess..'c')
 opt('o', 'completeopt', 'menuone,noinsert,noselect')
@@ -249,5 +249,21 @@ require'compe'.setup {
   };
 }
 
--- GALAXYLINE -----------------------------------------------------------------
-require('my_statusline')
+-- LIGHTLINE ------------------------------------------------------------------
+g.lightline = {
+  colorscheme = 'one',
+  active = {
+    left = {
+      {'mode', 'paste'},
+      {'readonly', 'filename', 'modified'}
+    },
+    right = {
+      {'lineinfo'},
+      {'percent'},
+      {'gitbranch', 'filetype'}
+    }
+  },
+  component_function = {
+    gitbranch = 'FugitiveHead'
+  }
+}
