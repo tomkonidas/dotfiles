@@ -67,7 +67,6 @@ opt('w', 'signcolumn', 'yes')               -- Show sign column
 opt('w', 'wrap', false)                     -- Disable line wrap
 opt('b', 'undofile', true)                  -- Enable undo files
 opt('o', 'clipboard', 'unnamedplus')        -- Share system clipboard
-opt('o', 'wildmode', 'list:longest')        -- Command-line completion mode
 opt('o', 'updatetime', 100)                 -- Faster buffer updates
 opt('o', 'showmode', false)                 -- Remove default MODE in status
 
