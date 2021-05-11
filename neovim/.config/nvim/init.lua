@@ -34,6 +34,7 @@ require('packer').startup(
     use 'airblade/vim-gitgutter'
     use 'chaoren/vim-wordmotion'
     use 'mattn/emmet-vim'
+    use 'mhinz/vim-mix-format'
     use 'sheerun/vim-polyglot'
     use 'joshdick/onedark.vim'
     use 'norcalli/nvim-colorizer.lua'
@@ -163,6 +164,9 @@ map('n', '<Leader>gl', '<cmd>Telescope git_branches<CR>')
 map('', '<Leader>o', '<cmd>setlocal spell! spelllang=en_us<CR>')
 
 -- PLUGIN SETTINGS ------------------------------------------------------------
+
+-- Elixir
+g.mix_format_on_save = 1
 
 -- GITGUTTER
 g.gitgutter_max_signs = -1
