@@ -91,6 +91,9 @@ map('n', '<Leader>ff', '<cmd>Telescope find_files<CR>')
 -- SELECT ALL
 map('n', '<C-a>', 'ggVG<CR>')
 
+-- SUBSTITUTE
+map('n', 'S', ':%s//g<Left><Left>', {silent = false})
+
 -- MOVE VISUAL SELECTION
 -- map('v', 'K', '<cmd>move \'<-2<CR>gv=gv')
 -- map('v', 'J', '<cmd>move \'>+1<CR>gv=gv')
