@@ -95,8 +95,8 @@ map('n', '<C-a>', 'ggVG<CR>')
 map('n', 'S', ':%s//g<Left><Left>', {silent = false})
 
 -- MOVE VISUAL SELECTION
--- map('v', 'K', '<cmd>move \'<-2<CR>gv=gv')
--- map('v', 'J', '<cmd>move \'>+1<CR>gv=gv')
+map('v', 'K', ':move \'<-2<CR>gv=gv')
+map('v', 'J', ':move \'>+1<CR>gv=gv')
 
 -- BETTER TABBING
 map('v', '<', '<gv')
