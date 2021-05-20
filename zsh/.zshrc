@@ -27,5 +27,9 @@ export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac"
 # asdf - Manage multiple runtime versions with a single CLI tool
 . /usr/local/opt/asdf/asdf.sh
 
+# Use vi mode
+bindkey -v
+export KEYTIMEOUT=1
+
 # direnv - Load/unload environment variables based on $PWD
 eval "$(direnv hook zsh)"
