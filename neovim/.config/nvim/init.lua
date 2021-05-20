@@ -183,13 +183,10 @@ require 'nvim-treesitter.configs'.setup {
     'javascript',
     'json',
     'jsonc',
-    'latex',
     'lua',
-    'python',
     'regex',
     'scss',
     'toml',
-    'tsx',
     'typescript'
   },
   highlight = {enable = true},
