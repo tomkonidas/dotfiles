@@ -12,8 +12,8 @@
 	cd = commit --amend
 	p = push
 	f = fetch -p
-	rom = rebase origin/master
 	l = log --oneline --decorate
+	lg = git log --graph --oneline --all
 [pull]
 	rebase = false
 [rebase]
