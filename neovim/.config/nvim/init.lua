@@ -177,19 +177,7 @@ g.gitgutter_max_signs = -1
 
 -- TREE-SITTER
 require 'nvim-treesitter.configs'.setup {
-  ensure_installed = {
-    'bash',
-    'comment',
-    'html',
-    'javascript',
-    'json',
-    'jsonc',
-    'lua',
-    'regex',
-    'scss',
-    'toml',
-    'typescript'
-  },
+  ensure_installed = "maintained",
   highlight = {enable = true},
   indent = {enable = true}
 }
