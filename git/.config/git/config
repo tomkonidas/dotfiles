@@ -13,7 +13,7 @@
 	p = push
 	f = fetch -p
 	l = log --oneline --decorate
-	lg = git log --graph --oneline --all
+	lg = log --graph --oneline --all
 [pull]
 	rebase = false
 [rebase]
