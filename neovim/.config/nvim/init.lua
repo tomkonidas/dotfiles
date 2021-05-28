@@ -36,7 +36,7 @@ require('packer').startup(
     use 'mattn/emmet-vim'
     use 'mhinz/vim-mix-format'
     use 'sheerun/vim-polyglot'
-    use 'joshdick/onedark.vim'
+    use 'glepnir/zephyr-nvim'
     use 'norcalli/nvim-colorizer.lua'
     use 'kyazdani42/nvim-web-devicons'
   end
@@ -46,7 +46,9 @@ require('packer').startup(
 local indent, width = 2, 80
 
 g.mapleader = ' '
-cmd 'colorscheme onedark'
+
+-- COLORSCHEME
+require('zephyr')
 
 opt('b', 'expandtab', true)                 -- Use spaces instead of tabs
 opt('w', 'number', true)                    -- Show line numbers
