@@ -31,5 +31,7 @@ export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac"
 bindkey -v
 export KEYTIMEOUT=1
 
+export GPG_TTY=$(tty)
+
 # direnv - Load/unload environment variables based on $PWD
 eval "$(direnv hook zsh)"
