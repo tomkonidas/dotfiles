@@ -2,6 +2,7 @@
 	email = tomkonidas@protonmail.ch
 	name = Tom Konidas
 	username = tomkonidas
+	signkey = 19AE0CCC9BFCCC4A
 [core]
 	editor = nvim
 [alias]
@@ -18,3 +19,5 @@
 	rebase = false
 [rebase]
 	autosquash = true
+[commit]
+	gpgsign = true
