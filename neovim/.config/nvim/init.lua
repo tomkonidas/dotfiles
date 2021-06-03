@@ -24,6 +24,7 @@ require('packer').startup(
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/nvim-compe'
     use 'hrsh7th/vim-vsnip'
+    use 'hrsh7th/vim-vsnip-integ'
     use 'itchyny/lightline.vim'
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use 'nvim-lua/plenary.nvim'
@@ -215,7 +216,7 @@ for ls, cfg in pairs({
     capabilities = capabilities
   },
   elixirls = {
-    cmd = {vim.loop.os_homedir().."/.local/share/elixir-ls/language_server.sh"}
+    cmd = {vim.loop.os_homedir().."/.local/share/elixir-ls/rel/language_server.sh"}
   },
   html = {
     capabilities = capabilities,
@@ -238,7 +239,7 @@ require'compe'.setup {
   autocomplete = true;
   debug = false;
   min_length = 1;
-  preselect = 'enable';
+  preselect = 'disabled';
   throttle_time = 80;
   source_timeout = 200;
   incomplete_delay = 400;
@@ -246,7 +247,6 @@ require'compe'.setup {
   max_kind_width = 100;
   max_menu_width = 100;
   documentation = true;
-
   source = {
     path = true;
     buffer = true;
@@ -254,7 +254,8 @@ require'compe'.setup {
     nvim_lsp = true;
     nvim_lua = true;
     vsnip = true;
-    ultisnips = true;
+    spell = true;
+    tags = true;
   };
 }
 
