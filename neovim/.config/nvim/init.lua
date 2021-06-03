@@ -217,7 +217,14 @@ for ls, cfg in pairs({
     capabilities = capabilities
   },
   elixirls = {
-    cmd = {vim.loop.os_homedir().."/.local/share/elixir-ls/rel/language_server.sh"}
+    capabilities = capabilities,
+    cmd = {vim.loop.os_homedir().."/.local/share/elixir-ls/rel/language_server.sh"},
+    settings = {
+      elixirLS = {
+        dialyzerEnabled = false,
+        fetchDeps = false
+      }
+    }
   },
   html = {
     capabilities = capabilities,
