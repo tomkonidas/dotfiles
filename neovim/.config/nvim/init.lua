@@ -226,6 +226,10 @@ for ls, cfg in pairs({
       }
     }
   },
+  efm = {
+    capabilities = capabilities,
+    filetypes = {"elixir"}
+  },
   html = {
     capabilities = capabilities,
     filetypes = {"html", "eelixir"}
