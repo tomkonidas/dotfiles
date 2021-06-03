@@ -151,6 +151,7 @@ map('n', ']g', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
 map('n', '<C-f>', '<cmd>lua vim.lsp.buf.formatting()<CR>')
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 map('n', '<Leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+map("n", "<c-k>", '<cmd>lua vim.lsp.buf.signature_help()<cr>')
 map('n', '<Leader>r', '<cmd>lua vim.lsp.buf.rename()<CR>')
 map('n', '<Leader>s', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
 
