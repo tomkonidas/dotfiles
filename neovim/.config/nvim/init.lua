@@ -115,12 +115,6 @@ map('i', 'jk', '<ESC>')
 map('i', 'kj', '<ESC>')
 map('t', '<ESC>', '<C-\\><C-n>')
 
--- QUICKFIX
-map('n', '<Leader><Down>', '<cmd>cclose<CR>')
-map('n', '<Leader><Left>', '<cmd>cprev<CR>')
-map('n', '<Leader><Right>', '<cmd>cnext<CR>')
-map('n', '<Leader><Up>', '<cmd>copen<CR>')
-
 -- BUFFERS
 map('n', '<Leader>q', '<cmd>bdelete<CR>')
 map('n', '<Leader>bd', '<cmd>bdelete<CR>')
