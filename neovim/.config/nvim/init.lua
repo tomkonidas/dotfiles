@@ -25,6 +25,7 @@ require('packer').startup(
     use 'hrsh7th/nvim-compe'
     use 'hrsh7th/vim-vsnip'
     use 'hrsh7th/vim-vsnip-integ'
+    use 'phaazon/hop.nvim'
     use 'itchyny/lightline.vim'
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use 'nvim-lua/plenary.nvim'
@@ -264,6 +265,12 @@ require'compe'.setup {
     tags = true;
   };
 }
+
+-- HOP ------------------------------------------------------------------------
+require'hop'.setup({ keys = 'etovxqpdygfblzhckisuran' })
+
+map('n', '<Leader>w', "<cmd>lua require'hop'.hint_words()<cr>")
+map('n', '<Leader>l', "<cmd>lua require'hop'.hint_lines()<cr>")
 
 -- LIGHTLINE ------------------------------------------------------------------
 g.lightline = {
