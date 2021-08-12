@@ -9,8 +9,8 @@
 	a = add --all
 	ai = add -i
 	b = branch
+	nb = checkout -b
 	c = commit
-	cd = commit --amend
 	p = push
 	f = fetch -p
 	l = log --oneline --decorate
