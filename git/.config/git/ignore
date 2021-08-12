@@ -13,16 +13,10 @@ Icon
 *.un~
 Session.vim
 .netrwhist
-neovim/.config/coc
 neovim/.config/nvim/plugin
 
 # Elixir
 .elixir_ls
-
-# Ruby
-.sass-cache
-.ruby-version
-.exenv-version
 
 # Node
 node_modules
@@ -32,7 +26,3 @@ npm-debug.log
 .envrc*
 .env
 tmp
-
-# ASDF
-# .tool-versions
-# .tool-versions-
