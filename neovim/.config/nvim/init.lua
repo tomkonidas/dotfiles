@@ -207,7 +207,6 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 for ls, cfg in pairs({
-  bashls = {},
   cssls = {
     capabilities = capabilities
   },
@@ -220,10 +219,6 @@ for ls, cfg in pairs({
         fetchDeps = false
       }
     }
-  },
-  efm = {
-    capabilities = capabilities,
-    filetypes = {"elixir"}
   },
   html = {
     capabilities = capabilities,
