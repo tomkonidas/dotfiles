@@ -263,7 +263,6 @@ require'compe'.setup {
 
 -- HOP ------------------------------------------------------------------------
 require'hop'.setup({ keys = 'etovxqpdygfblzhckisuran' })
-
 map('n', '<Leader>w', "<cmd>lua require'hop'.hint_words()<cr>")
 map('n', '<Leader>l', "<cmd>lua require'hop'.hint_lines()<cr>")
 
