@@ -22,6 +22,7 @@ require('packer').startup(
     use 'tpope/vim-endwise'
     use 'tpope/vim-surround'
     use 'neovim/nvim-lspconfig'
+    use 'kabouzeid/nvim-lspinstall'
     use 'hrsh7th/nvim-compe'
     use 'hrsh7th/vim-vsnip'
     use 'hrsh7th/vim-vsnip-integ'
@@ -201,31 +202,21 @@ g.strip_whitelines_at_eof = 1
 g.strip_whitespace_on_save = 1
 
 -- LSP
-local lsp = require('lspconfig')
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+local function setup_servers()
+  require'lspinstall'.setup()
+  local servers = require'lspinstall'.installed_servers()
+  for _, server in pairs(servers) do
+    require'lspconfig'[server].setup{}
+  end
+end
 
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+setup_servers()
 
-for ls, cfg in pairs({
-  cssls = {
-    capabilities = capabilities
-  },
-  elixirls = {
-    capabilities = capabilities,
-    cmd = {vim.loop.os_homedir().."/.local/share/elixir-ls/language_server.sh"},
-    settings = {
-      elixirLS = {
-        dialyzerEnabled = false,
-        fetchDeps = false
-      }
-    }
-  },
-  html = {
-    capabilities = capabilities,
-    filetypes = {"html", "eelixir"}
-  },
-  tsserver = {}
-}) do lsp[ls].setup(cfg) end
+-- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
+require'lspinstall'.post_install_hook = function ()
+  setup_servers() -- reload installed servers
+  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
+end
 
 -- COMPE
 opt('o', 'shortmess', vim.o.shortmess..'c')
