@@ -25,7 +25,7 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac"
 
 # asdf - Manage multiple runtime versions with a single CLI tool
-. /usr/local/opt/asdf/asdf.sh
+. $HOME/.asdf/asdf.sh
 
 # Use vi mode
 bindkey -v
