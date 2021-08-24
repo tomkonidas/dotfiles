@@ -33,3 +33,6 @@ export KEYTIMEOUT=1
 
 # direnv - Load/unload environment variables based on $PWD
 eval "$(direnv hook zsh)"
+
+# postgresql
+export PATH="/usr/local/opt/libpq/bin:$PATH"
