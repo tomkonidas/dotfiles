@@ -10,6 +10,7 @@
 	ai = add -i
 	b = branch
 	nb = checkout -b
+	co = checkout
 	c = commit
 	p = push
 	f = fetch -p
