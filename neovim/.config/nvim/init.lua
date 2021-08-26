@@ -263,7 +263,7 @@ g.lightline = {
   active = {
     left = {
       {'mode', 'paste'},
-      {'readonly', 'filename', 'modified'}
+      {'readonly', 'absolutepath', 'modified'}
     },
     right = {
       {'lineinfo'},
