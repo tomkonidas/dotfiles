@@ -202,10 +202,37 @@ g.strip_whitelines_at_eof = 1
 g.strip_whitespace_on_save = 1
 
 -- LSP
+local elixir_settings = {
+  elixirLS = {
+    dialyzerEnabled = false,
+    fetchDeps = false
+  }
+}
+
+-- config that activates keymaps and enables snippet support
+local function make_config()
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  return {
+    -- enable snippet support
+    capabilities = capabilities,
+  }
+end
+
 local function setup_servers()
   require'lspinstall'.setup()
   local servers = require'lspinstall'.installed_servers()
   for _, server in pairs(servers) do
+    local config = make_config()
+
+    -- language specific config
+    if server == "elixir" then
+      config.settings = elixir_settings
+    end
+    if server == "html" then
+      config.filetypes = {"html", "eelixir"};
+    end
+
     require'lspconfig'[server].setup{}
   end
 end
