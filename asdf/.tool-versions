@@ -4,3 +4,4 @@ nodejs 16.6.2
 neovim 0.5.0
 hugo 0.87.0
 yarn 1.22.10
+golang 1.17
