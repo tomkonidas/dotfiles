@@ -36,3 +36,7 @@ eval "$(direnv hook zsh)"
 
 # postgresql
 export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+CLOUD_SDK_HOME=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk
+source "${CLOUD_SDK_HOME}/path.zsh.inc"
+source "${CLOUD_SDK_HOME}/completion.zsh.inc"
