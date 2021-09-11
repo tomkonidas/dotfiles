@@ -222,12 +222,17 @@ end
 local function setup_servers()
   require'lspinstall'.setup()
   local servers = require'lspinstall'.installed_servers()
+  table.insert(servers, "efm")
+
   for _, server in pairs(servers) do
     local config = make_config()
 
     -- language specific config
     if server == "elixir" then
       config.settings = elixir_settings
+    end
+    if server == "efm" then
+      config.filetypes = {"elixir"};
     end
     if server == "html" then
       config.filetypes = {"html", "eelixir"};
@@ -276,6 +281,7 @@ require'compe'.setup {
     vsnip = true;
     spell = true;
     tags = true;
+    treesitter = true;
   };
 }
 
