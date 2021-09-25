@@ -1,4 +1,7 @@
 version: 2
+root-markers:
+  - .git/
+lint-debounce: 1s
 
 tools:
   mix_credo: &mix_credo
