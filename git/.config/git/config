@@ -16,6 +16,8 @@
 	f = fetch -p
 	l = log --oneline --decorate
 	lg = log --graph --oneline --all
+[init]
+	defaultBranch = main
 [pull]
 	rebase = false
 [rebase]
