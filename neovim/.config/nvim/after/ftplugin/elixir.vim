@@ -1,2 +1,1 @@
-set shiftwidth=2 tabstop=2 softtabstop=2 expandtab autoindent smartindent
-setlocal colorcolumn=120
+let g:mix_format_on_save = 1
