@@ -55,6 +55,9 @@ colorscheme base16-onedark
 noremap x "_x
 noremap X "_x
 
+" Prevent pasting to overight clipboard
+xnoremap p pgvy
+
 " Fix indentation
 nnoremap <Leader>i mzgg=G`z<CR>
 
