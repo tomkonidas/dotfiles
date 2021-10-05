@@ -51,7 +51,11 @@ endif
 packadd! nvim-base16
 colorscheme base16-onedark
 
-" fix indentation
+" Prevent x/X key from overriding clipboard
+noremap x "_x
+noremap X "_x
+
+" Fix indentation
 nnoremap <Leader>i mzgg=G`z<CR>
 
 " Delete buffer
