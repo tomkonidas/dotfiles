@@ -51,10 +51,6 @@ endif
 packadd! nvim-base16
 colorscheme base16-onedark
 
-" Prevent x/X key from overriding clipboard
-noremap x "_x
-noremap X "_x
-
 " Prevent pasting to overight clipboard
 xnoremap p pgvy
 
