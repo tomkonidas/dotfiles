@@ -23,6 +23,6 @@ node_modules
 npm-debug.log
 
 # Environment
-.envrc*
+.envrc
 .env
 tmp
