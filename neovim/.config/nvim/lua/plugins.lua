@@ -47,15 +47,6 @@ return require('packer').startup(function()
     event = 'BufEnter'
   }
 
-  use {
-    'phaazon/hop.nvim',
-    as = 'hop',
-    event = 'VimEnter',
-    config = function()
-      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-    end
-  }
-
   -- Elixir
   use({'mhinz/vim-mix-format', ft = 'elixir'})
 end)

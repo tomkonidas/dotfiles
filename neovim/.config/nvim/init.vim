@@ -51,9 +51,6 @@ endif
 packadd! nvim-base16
 colorscheme base16-onedark
 
-" Prevent pasting to overight clipboard
-xnoremap p pgvy
-
 " Fix indentation
 nnoremap <Leader>i mzgg=G`z<CR>
 
@@ -100,12 +97,7 @@ vnoremap > >gv
 
 " Fugitive
 nnoremap <silent> <Leader>gg :Git<CR>
-nnoremap <silent> <Leader>gb :Git blame<CR>
-nnoremap <Leader>gp :Git push
-
-" Hop
-nnoremap <Leader>w :HopWord<CR>
-nnoremap <Leader>l :HopLine<CR>
+nnoremap <Leader>gp :Git push<CR>
 
 " Set ripgrep as the grep command
 if executable("rg")
