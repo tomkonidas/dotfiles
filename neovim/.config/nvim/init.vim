@@ -26,6 +26,7 @@ set pumheight=10
 
 set shortmess+=c
 set completeopt=menuone,noinsert,noselect
+
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -51,8 +52,8 @@ endif
 packadd! nvim-base16
 colorscheme base16-onedark
 
-" Fix indentation
-nnoremap <Leader>i mzgg=G`z<CR>
+" Format the whole file by default
+nnoremap gq mzgggqG`z
 
 " Delete buffer
 nnoremap <silent> <Leader>q :bdelete<CR>
@@ -60,9 +61,6 @@ nnoremap <silent> <Leader>q :bdelete<CR>
 " vim-signify
 let g:signify_vcs_list = ['git']
 let g:signify_sign_change = '~'
-
-" Elixir
-let g:mix_format_on_save = 1
 
 " Netrw
 nnoremap <silent> <Leader>e :Explore<CR>

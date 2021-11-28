@@ -46,9 +46,4 @@ return require('packer').startup(function()
     },
     event = 'BufEnter'
   }
-
-  -- Elixir
-  use({'mhinz/vim-mix-format', ft = 'elixir'})
 end)
-
-
