@@ -23,7 +23,6 @@ set noshowmode
 set nowrap
 set clipboard+=unnamedplus
 set pumheight=10
-
 set shortmess+=c
 set completeopt=menuone,noinsert,noselect
 
