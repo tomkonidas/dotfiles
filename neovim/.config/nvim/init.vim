@@ -1,6 +1,5 @@
 let mapleader = " "
 
-set hidden
 set mouse=a
 set nobackup
 set noswapfile
