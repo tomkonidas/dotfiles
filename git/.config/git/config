@@ -2,7 +2,7 @@
 	email = tomkonidas@protonmail.ch
 	name = Tom Konidas
 	username = tomkonidas
-	signkey = 19AE0CCC9BFCCC4A
+	signkey = AABA889130AF460F
 [core]
 	editor = nvim
 [alias]
