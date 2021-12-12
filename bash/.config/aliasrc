@@ -30,3 +30,6 @@ alias gitprune="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git b
 
 # ASDF
 alias update-nvim-nightly="asdf uninstall neovim nightly && asdf install neovim nightly"
+
+# Yubikey
+alias yubikey-sync="gpg-connect-agent 'scd serialno' 'learn --force' /bye"
