@@ -1,8 +1,6 @@
 #!/bin/sh
 
 # Programs
-alias vim="nvim"
-alias v="nvim"
 alias yt="youtube-dl --add-metadata -i"
 alias yta="yt -x -f bestaudio/best"
 alias ffmpeg="ffmpeg -hide_banner"
@@ -27,9 +25,6 @@ alias tree="tree -C"
 
 # Git
 alias gitprune="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
-
-# ASDF
-alias update-nvim-nightly="asdf uninstall neovim nightly && asdf install neovim nightly"
 
 # Yubikey
 alias yubikey-sync="gpg-connect-agent 'scd serialno' 'learn --force' /bye"
