@@ -18,6 +18,10 @@ antigen apply
 
 DEFAULT_USER=`whoami`
 
+# Load aliases and shortcuts if existent.
+[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
+[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+
 # Enable iex shell history
 export ERL_AFLAGS="-kernel shell_history enabled"
 
