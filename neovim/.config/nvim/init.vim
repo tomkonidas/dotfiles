@@ -51,7 +51,7 @@ packadd! nvim-base16
 colorscheme base16-onedark
 
 " Format the whole file by default
-nnoremap gq mzgggqG`z
+nnoremap <Leader>g mzgggqG`z
 
 " Delete buffer
 nnoremap <silent> <Leader>q :bdelete<CR>
