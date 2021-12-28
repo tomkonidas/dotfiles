@@ -24,7 +24,7 @@ set clipboard+=unnamedplus
 set pumheight=10
 set shortmess+=c
 set complete+=kspell
-set completeopt=menuone,noinsert,noselect
+set completeopt=menuone,longest
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
