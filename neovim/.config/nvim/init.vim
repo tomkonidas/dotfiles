@@ -33,7 +33,6 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Use <CR> to confirm selection
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
-
 function LoadPlugins()
   " Install packer.nvim if not found
   let packer_path = stdpath('data') . '/site/pack/packer/start/packer.nvim'
