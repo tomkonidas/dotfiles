@@ -26,7 +26,8 @@ DEFAULT_USER=`whoami`
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 # Erlang config options
-export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac"
+export KERL_CONFIGURE_OPTIONS="--without-javac --without-jinterface --without-odbc --without-hipe"
+export KERL_BUILD_DOCS=yes
 
 # asdf - Manage multiple runtime versions with a single CLI tool
 . $HOME/.asdf/asdf.sh
