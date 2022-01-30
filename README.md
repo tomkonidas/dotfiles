@@ -1,35 +1,18 @@
 # dotfiles
 
-## This repo is under construction.  
-
-In the meanwhile, you can view my previous Arch/SpectrWM build [here](https://github.com/tomkonidas/dotfiles/tree/spectrwm)
+> ⚠️  This repo is under construction. ⚠️
 
 ## Setup
 
 Download && Install [stow](https://www.gnu.org/software/stow/)
 
-> Arch
+Use `stow` to symlink the directories you want
 
-```bash
-sudo pacman -S stow
+```sh
+stow neovim
 ```
 
-## Packages used in config
-- stow
-- neovim
-- xclip
-- materia-gtk-theme
-- spectrwm
-- i3lock-color
-- dunst
-- st
-- dmenu
-- ttf-fira-code
-- firefox
-- scrot
-- acpilight
-
-## Contact
+### Contact
 
 Created by [@tomkonidas](https://tomkonidas.com) - feel free to contact me!
 
