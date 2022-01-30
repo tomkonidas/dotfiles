@@ -27,8 +27,6 @@ return require("packer").startup(
             config = [[require('config.treesitter')]]
         }
 
-        use {"sheerun/vim-polyglot"}
-
         use {"chaoren/vim-wordmotion", event = "BufEnter"}
 
         use {"rrethy/nvim-base16", event = "VimEnter"}
