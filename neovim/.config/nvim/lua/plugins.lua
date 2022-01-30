@@ -12,12 +12,7 @@ return require("packer").startup(
 
         use {
             "neovim/nvim-lspconfig",
-            event = "VimEnter",
-            config = [[require('config.lsp')]],
-            requires = {
-                {"glepnir/lspsaga.nvim"},
-                {"nvim-lua/completion-nvim"}
-            }
+            config = [[require('config.lsp')]]
         }
 
         use {
