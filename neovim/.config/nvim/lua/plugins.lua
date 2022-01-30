@@ -48,7 +48,8 @@ return require("packer").startup(
                 "nvim-lua/plenary.nvim",
                 opt = true
             },
-            event = "BufEnter"
+            event = "BufEnter",
+            config = [[require('config.telescope')]]
         }
     end
 )

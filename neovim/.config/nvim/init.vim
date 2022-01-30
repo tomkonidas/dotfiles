@@ -1,14 +1,11 @@
 let mapleader = " "
 
 set mouse=a
-set nobackup
 set noswapfile
 set undofile
 set showmatch
-set wildmenu
 set scrolloff=12
 set shiftwidth=2
-set smarttab
 set tabstop=2
 set softtabstop=2
 set expandtab
@@ -19,16 +16,9 @@ set smartcase
 set number
 set cursorline
 set noshowmode
-set nowrap
-set clipboard+=unnamedplus
-set pumheight=10
 set shortmess+=c
-set complete+=kspell
 set completeopt=menuone,longest
-
-" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+set clipboard+=unnamedplus
 
 " Use <CR> to confirm selection
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
@@ -47,15 +37,21 @@ endfunction
 
 call LoadPlugins()
 
-if (has("termguicolors"))
+if has("termguicolors")
   set termguicolors
 endif
 
+" Color scheme
 packadd! nvim-base16
 colorscheme base16-onedark
 
-" Format the whole file by default
-nnoremap <Leader>g mzgggqG`z
+"File Navigate
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
+nnoremap <silent> <Leader>e :Explore<CR>
+nnoremap <silent> <Leader><Space> :call ProjectFiles()<CR>
+nnoremap <silent> <Leader>, :Telescope buffers<CR>
+nnoremap <silent> <Leader>/ :Telescope live_grep<CR>
 
 " Delete buffer
 nnoremap <silent> <Leader>q :bdelete<CR>
@@ -63,23 +59,6 @@ nnoremap <silent> <Leader>q :bdelete<CR>
 " vim-signify
 let g:signify_vcs_list = ['git']
 let g:signify_sign_change = '~'
-
-" Netrw
-nnoremap <silent> <Leader>e :Explore<CR>
-
-" Telescope
-function ProjectFiles()
-  silent! !git rev-parse --is-inside-work-tree
-  if v:shell_error == 0
-    :Telescope git_files
-  else
-    :Telescope find_files
-  endif
-endfunction
-
-nnoremap <silent> <Leader><Space> :call ProjectFiles()<CR>
-nnoremap <silent> <Leader>/ :Telescope live_grep<CR>
-nnoremap <silent> <Leader>, :Telescope buffers<CR>
 
 " Clear highlighted search
 nmap <silent> <C-\> :nohlsearch<CR>
@@ -105,12 +84,20 @@ if executable("rg")
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
+function ProjectFiles()
+  silent! !git rev-parse --is-inside-work-tree
+  if v:shell_error == 0
+    :Telescope git_files
+  else
+    :Telescope find_files
+  endif
+endfunction
+
 " Trailing whitespace
 match ErrorMsg '\s\+$'
 function! TrimWhiteSpace()
   %s/\s\+$//e
 endfunction
-
 autocmd BufWritePre * :call TrimWhiteSpace()
 
 " Automatically source vimrc on save.
