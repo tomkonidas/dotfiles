@@ -11,6 +11,7 @@ set softtabstop=2
 set expandtab
 set smartindent
 set copyindent
+set nowrap
 set ignorecase
 set smartcase
 set number
