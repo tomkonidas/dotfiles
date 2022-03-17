@@ -46,7 +46,7 @@ local function make_config()
     return {on_attach = on_attach}
 end
 
-local servers = {"elixirls", "tsserver"}
+local servers = {"elixirls", "tsserver", "zls"}
 
 for _, lsp in ipairs(servers) do
     local config = make_config()
@@ -57,6 +57,11 @@ for _, lsp in ipairs(servers) do
         }
         config.cmd = {
             vim.loop.os_homedir() .. "/.local/share/elixir-ls/language_server.sh"
+        }
+    end
+    if lsp == "zls" then
+        config.cmd = {
+            vim.loop.os_homedir() .. "/.local/share/zls/zls"
         }
     end
 

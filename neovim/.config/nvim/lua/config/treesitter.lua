@@ -23,6 +23,7 @@ require("nvim-treesitter.configs").setup(
             "toml",
             "typescript",
             "vim",
+            "zig",
             "yaml"
         },
         ignore_install = {}, -- List of parsers to ignore installing
