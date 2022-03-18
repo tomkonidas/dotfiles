@@ -6,6 +6,7 @@ return require("packer").startup(
         use {"tpope/vim-fugitive", event = "VimEnter"}
         use {"tpope/vim-commentary", event = "VimEnter"}
         use {"tpope/vim-surround", event = "VimEnter"}
+        use {"tpope/vim-projectionist", event = "VimEnter"}
 
         -- Show git change (change, delete, add) signs in vim sign column
         use {"mhinz/vim-signify", event = "BufEnter"}
