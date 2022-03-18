@@ -20,6 +20,7 @@ set noshowmode
 set shortmess+=c
 set completeopt=menuone,longest
 set clipboard+=unnamedplus
+set laststatus=3
 
 " Use <CR> to confirm selection
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
