@@ -46,7 +46,7 @@ local function make_config()
     return {on_attach = on_attach}
 end
 
-local servers = {"elixirls", "tsserver", "zls"}
+local servers = {"elixirls", "tsserver"}
 
 for _, lsp in ipairs(servers) do
     local config = make_config()
@@ -55,14 +55,7 @@ for _, lsp in ipairs(servers) do
         config.settings = {
             elixirLS = {dialyzerEnabled = false}
         }
-        config.cmd = {
-            vim.loop.os_homedir() .. "/.local/share/elixir-ls/language_server.sh"
-        }
-    end
-    if lsp == "zls" then
-        config.cmd = {
-            vim.loop.os_homedir() .. "/.local/share/zls/zls"
-        }
+        config.cmd = {"elixir-ls"}
     end
 
     nvim_lsp[lsp].setup(config)

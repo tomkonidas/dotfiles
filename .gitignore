@@ -6,14 +6,17 @@
 Icon
 ._*
 
+# Windows
+Thumbs.db
+
 # Vim
 .local.vimrc
 .lvimrc
 .*.sw[a-z]
 *.un~
 Session.vim
+Sessionx.vim
 .netrwhist
-neovim/.config/nvim/plugin
 
 # Elixir
 .elixir_ls
@@ -26,3 +29,7 @@ npm-debug.log
 .envrc
 .env
 tmp
+
+# General
+log/
+*.log

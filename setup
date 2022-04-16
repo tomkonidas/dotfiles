@@ -1,0 +1,237 @@
+#!/usr/bin/env bash
+#------------------------------------------------------------------------------
+# Tom's awesome dotfiles setup wizard
+# Author: Tom Konidas <tomkonidas@protonmmail.ch>
+#------------------------------------------------------------------------------
+# Supported Platforms:
+#   Darwin
+#
+# Dependencies:
+#   bash (>= 3.2)
+#   curl (>= 7.64.1)
+#------------------------------------------------------------------------------
+
+set -e
+
+DOTFILES="$HOME/.dotfiles"
+SYMLINKS=(
+  "$DOTFILES/.profile:$HOME/.profile"
+  "$DOTFILES/.aliases:$HOME/.aliases"
+  "$DOTFILES/.zshrc:$HOME/.zshrc"
+  "$DOTFILES/.bashrc:$HOME/.bashrc"
+  "$DOTFILES/.bash_profile:$HOME/.bash_profile"
+  "$DOTFILES/.gitignore:$HOME/.config/git/ignore"
+  "$DOTFILES/.gitconfig:$HOME/.config/git/config"
+  "$DOTFILES/nvim/init.vim:$HOME/.config/nvim/init.vim"
+  "$DOTFILES/nvim/lua/plugins.lua:$HOME/.config/nvim/lua/plugins.lua"
+)
+for file in "$DOTFILES"/nvim/after/ftplugin/*; do
+  SYMLINKS+=("$file:$HOME/.config/nvim/after/ftplugin/${file##*/}")
+done
+for file in "$DOTFILES"/nvim/lua/config/*; do
+  SYMLINKS+=("$file:$HOME/.config/nvim/lua/config/${file##*/}")
+done
+
+# Create a working temp dir and cleanup on exit
+MYTEMPDIR=$(mktemp -d)
+trap '{ rm -rf -- "$MYTEMPDIR"; }' EXIT
+
+# Regular
+red='\033[0;31m';
+gre='\033[0;32m';
+yel='\033[0;33m';
+blu='\033[0;34m';
+pur='\033[0;35m';
+cya='\033[0;36m';
+
+# Color reset
+cre='\033[0;10m'
+
+box() {
+  local termwidth
+  local title
+  local padding
+  local edge
+  termwidth="$(tput cols)"
+  padding="$(printf '%0.1s' ={1..500})"
+  title=$(printf '%*.*s %s %*.*s\n' \
+    0 \
+    "$(((termwidth-2-${#1})/2))" \
+    "$padding" \
+    "$1" \
+    0 \
+    "$(((termwidth-1-${#1})/2))" \
+    "$padding")
+  edge=${title//?/*}
+  printf "${cya}%s\n" "$edge"
+  printf "${cya}%s\n" "$title"
+  printf "${cya}%s${cre}\n" "$edge"
+}
+
+err() {
+  printf "${red}Error: ${cre}%s\n" "$2" 1>&2
+  if (( $1 > 0 )); then
+    exit "$1"
+  fi
+}
+
+pecho() {
+  case "$1" in
+    option) printf "${cya}%s${cre}) %s\n" "$2" "$3" ;;
+    spot) printf "%s ${pur}%s${cre}\n" "$2" "$3" ;;
+    success)  printf "${gre}Success: ${cre}%s\n" "$2" ;;
+    warn) printf "${yel}Warning: ${cre}%s\n" "$2" ;;
+    warn_prompt) printf "${yel}Warning: ${cre}%s" "$2" ;;
+    info) printf "${blu}%s${cre}\n" "$2" ;;
+    info_prompt) printf "${blu}%s${cre}" "$2" ;;
+  esac
+}
+
+install_system_packages() {
+  OS=$(uname -s)
+  KERNEL=$(uname -r)
+  ARCH=$(uname -m)
+  pecho 'spot' 'OS:' "$OS $KERNEL ($ARCH)"
+
+  case "$OS" in
+    Darwin)
+      if [[ ! -e "$HOME/.hushlogin" ]]; then
+        touch "$HOME/.hushlogin" \
+          && pecho 'success' "'.hushlogin' created!"
+      fi
+
+      if ! [[ -x "$(command -v brew)" ]]; then
+        pecho 'warn' '[pkg] Homebrew is missing'
+        pecho 'info' 'Installing Homebrew...'
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" \
+          && pecho 'success' 'Homebrew ready!'
+      fi
+
+      pecho 'info' 'Installing brew packages...'
+      local cli_packages=(direnv antigen htop tree bat fzf ripgrep)
+      for pkg in "${cli_packages[@]}"; do
+        brew install "$pkg"
+      done
+
+      local brew_taps
+      brew_taps="$(brew --repository)/Library/Taps/homebrew"
+      if [[ ! -d "$brew_taps/homebrew-cask-fonts" ]]; then
+        brew tap homebrew/cask-fonts
+      fi
+
+      local gui_packages=(iterm2 gpg-suite font-fira-code-nerd-font)
+      for pkg in "${gui_packages[@]}"; do
+        brew install --cask "$pkg"
+      done
+      ;;
+
+    *)
+      err 0 "system package installation isn't supported with your OS/Distro."
+      ;;
+  esac
+  readonly OS
+  readonly KERNEL
+  readonly ARCH
+}
+
+clone_dotfiles() {
+  if [[ -e "$DOTFILES" ]]; then
+    pecho 'warn' "[git clone] '$DOTFILES' already exists"
+  else
+    pecho 'spot' 'Cloning dotfiles to' "$DOTFILES"
+    git clone https://github.com/tomkonidas/dotfiles "$DOTFILES" \
+      && pecho 'success' 'dotfiles ready!'
+  fi
+}
+
+deploy_dotfiles() {
+  create_symlinks && setup_neovim
+}
+
+create_symlinks() {
+  mkdir -pv "$HOME/.config/git"
+  mkdir -pv "$HOME/.config/nvim/plugin"
+  mkdir -pv "$HOME/.config/nvim/after/ftplugin"
+  mkdir -pv "$HOME/.config/nvim/lua/config"
+
+  for symlink in "${SYMLINKS[@]}"; do
+    IFS=":" read -r -a arr <<< "${symlink}"
+    # TODO: prompt to backup/re-symlink
+    if [[ -L "${arr[1]}" ]]; then
+      pecho 'warn' "[symlink] '${arr[1]}' is a symlink"
+    elif [[ -e "${arr[1]}" ]]; then
+      pecho 'warn' "[symlink] '${arr[1]}' is a file"
+    else
+      ln -sv "${arr[0]}" "${arr[1]}"
+    fi
+  done
+}
+
+setup_neovim() {
+  if [[ -x $(command -v nvim) ]]; then
+    pecho 'info' 'Setting up Neovim...'
+    nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' \
+      && pecho 'success' 'Neovim ready!'
+  fi
+}
+
+install_language_servers() {
+  local ls_path="$HOME/local/share/language-servers"
+  mkdir -pv "$ls_path"
+
+  pecho 'info' 'Installing elixir-ls...'
+  (
+    cd "$MYTEMPDIR"
+    curl -fLO https://github.com/elixir-lsp/elixir-ls/releases/latest/download/elixir-ls.zip
+    unzip -o elixir-ls.zip -d "${ls_path}/elixir-ls"
+  ) \
+    && ln -fsv "${ls_path}/elixir-ls/language_server.sh" "/usr/local/bin/elixir-ls" \
+    && pecho 'success' 'elixir-ls ready!'
+}
+
+main() {
+  clear
+  box "TOM'S DOTFILES SETUP WIZARD"
+  echo
+  local options=()
+  options[0]='Install System Packages'
+  options[1]='Clone Dotfiles'
+  options[2]='Deploy Dotfiles'
+  options[3]='Install Language Servers'
+
+  while true; do
+    echo 'Select one of the following options:'
+    for i in "${!options[@]}"; do
+      pecho 'option' "$(( $i + 1))" "${options[$i]}"
+    done
+    pecho 'option' '*' 'All'
+    echo -e "${red}q${cre}) Quit"
+
+    echo -en "\nSelect an option (${cya}*${cre}): "
+    read -r response
+    case "$response" in
+      1) install_system_packages ;;
+      2) clone_dotfiles ;;
+      3) deploy_dotfiles ;;
+      4) install_language_servers ;;
+
+      '*'|'')
+          install_system_packages \
+          && clone_dotfiles \
+          && deploy_dotfiles \
+          && install_language_servers \
+          && echo -e "${gre}Setup complete!" \
+          && exit 0
+        ;;
+
+      [Qq]) exit 0 ;;
+
+      *)
+        echo
+        err 0 "'${response}' isn't a valid option"
+        ;;
+    esac
+  done
+}
+
+main "$@"

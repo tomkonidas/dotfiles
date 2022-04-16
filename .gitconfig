@@ -6,13 +6,7 @@
 [core]
 	editor = nvim
 [alias]
-	a = add --all
-	ai = add -i
-	b = branch
-	nb = checkout -b
 	co = checkout
-	c = commit
-	p = push
 	f = fetch -p
 	l = log --oneline --decorate
 	lg = log --graph --oneline --all
