@@ -108,7 +108,7 @@ install_system_packages() {
       fi
 
       pecho 'info' 'Installing brew packages...'
-      local cli_packages=(direnv antigen htop tree bat fzf ripgrep)
+      local cli_packages=(neovim direnv antigen htop tree bat fzf ripgrep)
       for pkg in "${cli_packages[@]}"; do
         brew install "$pkg"
       done
