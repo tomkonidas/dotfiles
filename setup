@@ -202,7 +202,7 @@ main() {
   while true; do
     echo 'Select one of the following options:'
     for i in "${!options[@]}"; do
-      pecho 'option' "$(( $i + 1))" "${options[$i]}"
+      pecho 'option' "$(( $i + 1 ))" "${options[$i]}"
     done
     pecho 'option' '*' 'All'
     echo -e "${red}q${cre}) Quit"
