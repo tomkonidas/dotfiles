@@ -16,7 +16,6 @@ set ignorecase
 set smartcase
 set number
 set cursorline
-" set noshowmode
 set shortmess+=c
 set completeopt=menuone,longest
 set clipboard+=unnamedplus
@@ -101,6 +100,11 @@ function! TrimWhiteSpace()
   %s/\s\+$//e
 endfunction
 autocmd BufWritePre * :call TrimWhiteSpace()
+
+augroup ejson_ft
+  au!
+  autocmd BufNewFile,BufRead *.ejson set syntax=json
+augroup END
 
 " Automatically source vimrc on save.
 autocmd! BufWritePost $MYVIMRC source $MYVIMRC | echom "Sourced " . $MYVIMRC
