@@ -16,7 +16,7 @@ set ignorecase
 set smartcase
 set number
 set cursorline
-set noshowmode
+" set noshowmode
 set shortmess+=c
 set completeopt=menuone,longest
 set clipboard+=unnamedplus
