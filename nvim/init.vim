@@ -4,7 +4,7 @@ set mouse=a
 set noswapfile
 set undofile
 set showmatch
-set scrolloff=12
+set scrolloff=8
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
