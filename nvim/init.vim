@@ -15,6 +15,7 @@ set nowrap
 set ignorecase
 set smartcase
 set number
+set relativenumber
 set cursorline
 set shortmess+=c
 set completeopt=menuone,longest
