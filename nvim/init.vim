@@ -106,5 +106,10 @@ augroup ejson_ft
   autocmd BufNewFile,BufRead *.ejson set syntax=json
 augroup END
 
+augroup highlight_yank
+  au!
+  au TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=150}
+augroup END
+
 " Automatically source vimrc on save.
 autocmd! BufWritePost $MYVIMRC source $MYVIMRC | echom "Sourced " . $MYVIMRC
