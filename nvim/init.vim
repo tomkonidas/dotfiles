@@ -17,10 +17,11 @@ set smartcase
 set number
 set relativenumber
 set cursorline
+set nohlsearch
 set shortmess+=c
 set completeopt=menuone,longest
-set clipboard+=unnamedplus
 set laststatus=3
+set updatetime=50
 
 " Use <CR> to confirm selection
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
@@ -48,22 +49,25 @@ packadd! nvim-base16
 colorscheme base16-onedark
 
 "File Navigate
-nnoremap <Tab> :bnext<CR>
-nnoremap <S-Tab> :bprevious<CR>
-nnoremap <silent> <Leader>e :Explore<CR>
-nnoremap <silent> <Leader><Space> :call ProjectFiles()<CR>
+nnoremap <silent> <Leader><space> :call ProjectFiles()<CR>
+nnoremap <silent> <Leader>e :Ex<CR>
+nnoremap <silent> <Leader>v :Vex<CR>
 nnoremap <silent> <Leader>, :Telescope buffers<CR>
 nnoremap <silent> <Leader>/ :Telescope live_grep<CR>
 
-" Delete buffer
-nnoremap <silent> <Leader>q :bdelete<CR>
+let g:netrw_altfile = 1
+let g:netrw_alto = 1
+
+" Do not loose clipboard content on paste
+vnoremap <Leader>p "_dP
+" Yank to system clipbpard
+vnoremap <Leader>y "+y
+nnoremap <Leader>y "+y
+nnoremap <Leader>Y gg"+yG
 
 " vim-signify
 let g:signify_vcs_list = ['git']
 let g:signify_sign_change = '~'
-
-" Clear highlighted search
-nmap <silent> <C-\> :nohlsearch<CR>
 
 " Toggle Spell-check
 map <Leader>o :setlocal spell! spelllang=en_us<CR>
@@ -76,9 +80,13 @@ vnoremap K :move '<-2<CR>gv=gv
 vnoremap < <gv
 vnoremap > >gv
 
-" Fugitive
+" Git
 nnoremap <silent> <Leader>gg :Git<CR>
 nnoremap <Leader>gp :Git push<CR>
+
+" Quickfix list
+nnoremap <C-k> :cprev<CR>
+nnoremap <C-j> :cnext<CR>
 
 " Set ripgrep as the grep command
 if executable("rg")
@@ -108,8 +116,8 @@ augroup ejson_ft
 augroup END
 
 augroup highlight_yank
-  au!
-  au TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=150}
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({higroup="IncSearch", timeout = 40})
 augroup END
 
 " Automatically source vimrc on save.
