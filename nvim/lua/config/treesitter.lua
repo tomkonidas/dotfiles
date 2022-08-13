@@ -26,14 +26,9 @@ require("nvim-treesitter.configs").setup(
             "zig",
             "yaml"
         },
-        ignore_install = {}, -- List of parsers to ignore installing
-        highlight = {
-            enable = true, -- false will disable the whole extension
-            disable = {} -- list of language that will be disabled
-        },
-        indent = {
-            -- indentation based on treesitter for the = operator
-            enable = true
-        }
+        highlight = {enable = true},
+        incremental_selection = {enable = true},
+        indent = {enable = true},
+        textobjects = {enable = true}
     }
 )
