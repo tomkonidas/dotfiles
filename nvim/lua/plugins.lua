@@ -28,12 +28,10 @@ return require("packer").startup(
 
         use {"rrethy/nvim-base16", event = "VimEnter"}
 
+        use "nvim-lua/plenary.nvim"
+
         use {
             "nvim-telescope/telescope.nvim",
-            requires = {
-                "nvim-lua/plenary.nvim",
-                opt = true
-            },
             event = "BufEnter",
             config = [[require('config.telescope')]]
         }
