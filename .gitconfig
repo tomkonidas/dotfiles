@@ -16,6 +16,7 @@
 	rebase = false
 [rebase]
 	autosquash = true
+	autostash = true
 [commit]
 	gpgsign = true
 [push]
