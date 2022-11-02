@@ -176,7 +176,7 @@ setup_neovim() {
 }
 
 install_language_servers() {
-  local ls_path="$HOME/local/share/language-servers"
+  local ls_path="$HOME/.local/bin/language-servers"
   mkdir -pv "$ls_path"
 
   pecho 'info' 'Installing elixir-ls...'
