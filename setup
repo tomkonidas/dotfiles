@@ -17,6 +17,7 @@ DOTFILES="$HOME/.dotfiles"
 SYMLINKS=(
   "$DOTFILES/.profile:$HOME/.profile"
   "$DOTFILES/.aliases:$HOME/.aliases"
+  "$DOTFILES/.zprofile:$HOME/.zprofile"
   "$DOTFILES/.zshrc:$HOME/.zshrc"
   "$DOTFILES/.bashrc:$HOME/.bashrc"
   "$DOTFILES/.bash_profile:$HOME/.bash_profile"
