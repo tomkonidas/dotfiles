@@ -10,6 +10,7 @@ require("nvim-treesitter.configs").setup(
             "eex",
             "elixir",
             "erlang",
+            "gitcommit",
             "gitignore",
             "heex",
             "html",
